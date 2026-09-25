@@ -3,7 +3,7 @@ const EMAIL_FIRMA = "serviciidecontabilitateanglia@gmail.com";
 
 // Cheia Web3Forms (https://web3forms.com): cu ea, formularul trimite mesajul direct pe e-mail.
 // Cât timp e goală, formularul deschide aplicația de e-mail a vizitatorului.
-const WEB3FORMS_KEY = "";
+const WEB3FORMS_KEY = "0e91ada6-2f52-441a-ac1f-96f3b627da44";
 
 // Textele e-mailului, în limba paginii (index.html = română, en.html = engleză)
 const TEXTE = {
