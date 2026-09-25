@@ -18,13 +18,11 @@
   <meta property="og:title" content="Servicii De Contabilitate Anglia">
   <meta property="og:description" content="UK accountants for sole traders, CIS subcontractors and limited companies: Self Assessment, CIS refunds, VAT and MTD. Advice in English or Romanian.">
   <meta property="og:url" content="https://adridari1987-spec.github.io/serviciicontabilitateanglia/en.html">
-  <meta property="og:image" content="https://adridari1987-spec.github.io/serviciicontabilitateanglia/og-image-en.png">
+  <meta property="og:image" content="https://adridari1987-spec.github.io/serviciicontabilitateanglia/og-image-en.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
   <script type="application/ld+json">
 {
@@ -32,7 +30,7 @@
   "@type": "AccountingService",
   "name": "Servicii De Contabilitate Anglia",
   "url": "https://adridari1987-spec.github.io/serviciicontabilitateanglia/en.html",
-  "image": "https://adridari1987-spec.github.io/serviciicontabilitateanglia/og-image-en.png",
+  "image": "https://adridari1987-spec.github.io/serviciicontabilitateanglia/og-image-en.jpg",
   "logo": "https://adridari1987-spec.github.io/serviciicontabilitateanglia/apple-touch-icon.png",
   "telephone": "+447909451914",
   "email": "serviciidecontabilitateanglia@gmail.com",
@@ -324,11 +322,16 @@
         <div class="section__head">
           <p class="eyebrow">Free calculator</p>
           <h2>Self-employed or limited company: which is better for you?</h2>
-          <p>Enter your expected yearly profit and compare how much you keep in each option (2025/26 tax year).</p>
+          <p>Choose the tax year, enter your expected yearly profit and compare how much you keep in each option.</p>
         </div>
 
         <div class="calc calc--ltd" id="ltd-calc">
           <form class="calc__form" autocomplete="off" novalidate>
+            <fieldset class="an-fiscal">
+              <legend>Tax year</legend>
+              <label><input type="radio" name="an" value="2026/27" checked> 2026/27 (current year)</label>
+              <label><input type="radio" name="an" value="2025/26"> 2025/26</label>
+            </fieldset>
             <label>Expected yearly profit
               <span class="money"><span>£</span><input type="number" name="profit" min="0" step="any" inputmode="decimal" placeholder="e.g. 50000"></span>
               <small>Income minus expenses, before tax and before paying yourself.</small>
@@ -372,7 +375,7 @@
         </div>
         <p class="ltd__tip">A limited company can come out ahead if you leave some profit in the company, pay pension contributions through it or share ownership with your spouse. We run the full numbers at your free consultation.</p>
 
-        <p class="calc__note-dark">This is an estimate only, not tax advice. For the limited company we assume a director's salary of £12,570 (or less if profit is lower) with the rest taken as dividends. It doesn't include the cost of running a company (ours starts at £100/month), pension contributions, Employment Allowance, other income or living in Scotland. Rates are for 2025/26 in England, Wales and Northern Ireland.</p>
+        <p class="calc__note-dark">This is an estimate only, not tax advice. For the limited company we assume a director's salary of £12,570 (or less if profit is lower) with the rest taken as dividends. It doesn't include the cost of running a company (ours starts at £100/month), pension contributions, Employment Allowance, other income or living in Scotland. Rates are for the selected tax year in England, Wales and Northern Ireland. From April 2026, dividend tax is 10.75% (basic rate) and 35.75% (higher rate).</p>
       </div>
     </section>
 

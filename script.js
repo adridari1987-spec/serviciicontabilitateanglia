@@ -142,7 +142,13 @@ const RATE = {
   ctPragMare: 250000,
   ctFractieMarginala: 3 / 200,
   alocatieDividende: 500,     // primii £500 din dividende nu se impozitează
-  divCote: [0.0875, 0.3375, 0.3935], // dividende: bază / superioară / adițională
+};
+
+// Ce diferă de la un an fiscal la altul în calculatorul Ltd.
+// Din aprilie 2026 cotele pentru dividende au crescut cu 2 puncte (bază și superioară).
+const ANI_FISCALI = {
+  "2025/26": { divCote: [0.0875, 0.3375, 0.3935] }, // dividende: bază / superioară / adițională
+  "2026/27": { divCote: [0.1075, 0.3575, 0.3935] },
 };
 
 // Alocația personală scade cu £1 la fiecare £2 de venit peste prag
@@ -229,7 +235,7 @@ if (calc) {
 }
 
 // ========== Calculator Self-employed sau Ltd ==========
-function calculeazaLtd(profit) {
+function calculeazaLtd(profit, an) {
   // Salariul directorului: £12.570, sau cât permite profitul (inclusiv NI angajator)
   const costSalariu = (sal) => sal + Math.max(sal - RATE.niAngajatorPrag, 0) * RATE.niAngajatorCota;
   let salariu = RATE.salariuDirector;
@@ -255,7 +261,7 @@ function calculeazaLtd(profit) {
     Math.max(Math.min(salariu, RATE.niPragSuperior) - RATE.niPragInferior, 0) * 0.08 +
     Math.max(salariu - RATE.niPragSuperior, 0) * 0.02;
   const inceputDiv = salariuImpozabil + Math.min(RATE.alocatieDividende, divImpozabil);
-  const impozitDiv = impozitPeBenzi(inceputDiv, salariuImpozabil + divImpozabil, RATE.divCote);
+  const impozitDiv = impozitPeBenzi(inceputDiv, salariuImpozabil + divImpozabil, ANI_FISCALI[an].divCote);
 
   const taxe = ct + niAngajator + niAngajat + impozitSalariu + impozitDiv;
   return { salariu, dividende, ct, niAngajator, impozitDiv: impozitDiv + impozitSalariu + niAngajat, taxe, net: profit - taxe };
@@ -270,8 +276,9 @@ if (ltd) {
 
   const actualizeaza = () => {
     const profit = Math.max(parseFloat(input.value) || 0, 0);
+    const an = ltd.querySelector("[name=an]:checked")?.value || "2026/27";
     const se = taxeSelfEmployed(profit);
-    const l = calculeazaLtd(profit);
+    const l = calculeazaLtd(profit, an);
     const r = {
       seImpozit: se.impozit, seNi: se.ni, seTaxe: se.impozit + se.ni, seNet: profit - se.impozit - se.ni,
       ltdSalariu: l.salariu, ltdDividende: l.dividende, ltdCt: l.ct, ltdNiAngajator: l.niAngajator,
@@ -279,7 +286,7 @@ if (ltd) {
     };
     r.diferenta = Math.abs(r.ltdNet - r.seNet);
     const castigator = r.ltdNet > r.seNet ? "ltd" : "se";
-    ultim = profit ? { profit, castigator, diferenta: r.diferenta } : null;
+    ultim = profit ? { profit, an, castigator, diferenta: r.diferenta } : null;
 
     sectiune.querySelectorAll("[data-ltd-out]").forEach((el) => { el.textContent = lire.format(r[el.dataset.ltdOut]); });
     sectiune.querySelectorAll("[data-ltd-show]").forEach((el) => {
@@ -290,7 +297,8 @@ if (ltd) {
       c.classList.toggle("is-best", !!profit && c.dataset.varianta === castigator);
     });
   };
-  input.addEventListener("input", actualizeaza);
+  ltd.querySelector("form").addEventListener("input", actualizeaza);
+  ltd.querySelector("form").addEventListener("change", actualizeaza);
   actualizeaza();
 
   // Butonul de sub comparație completează formularul de contact
@@ -303,8 +311,8 @@ if (ltd) {
     if (!contact.elements.mesaj.value) {
       const varianta = ultim.castigator === "ltd" ? (en ? "limited company" : "firmă Ltd") : "self-employed";
       contact.elements.mesaj.value = en
-        ? `Self-employed or Ltd calculator: profit ${lire.format(ultim.profit)}, ${varianta} better by about ${lire.format(ultim.diferenta)} per year.`
-        : `Calculator self-employed sau Ltd: profit ${lire.format(ultim.profit)}, ${varianta} mai avantajos cu aproximativ ${lire.format(ultim.diferenta)} pe an.`;
+        ? `Self-employed or Ltd calculator (${ultim.an}): profit ${lire.format(ultim.profit)}, ${varianta} better by about ${lire.format(ultim.diferenta)} per year.`
+        : `Calculator self-employed sau Ltd (${ultim.an}): profit ${lire.format(ultim.profit)}, ${varianta} mai avantajos cu aproximativ ${lire.format(ultim.diferenta)} pe an.`;
     }
   });
 }

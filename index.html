@@ -18,13 +18,11 @@
   <meta property="og:title" content="Servicii De Contabilitate Anglia">
   <meta property="og:description" content="Contabilitate în Marea Britanie pentru români: Self Assessment, CIS, firme Ltd, VAT, Making Tax Digital și investigații HMRC. Totul explicat în limba română.">
   <meta property="og:url" content="https://adridari1987-spec.github.io/serviciicontabilitateanglia/">
-  <meta property="og:image" content="https://adridari1987-spec.github.io/serviciicontabilitateanglia/og-image.png">
+  <meta property="og:image" content="https://adridari1987-spec.github.io/serviciicontabilitateanglia/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
   <script type="application/ld+json">
 {
@@ -32,7 +30,7 @@
   "@type": "AccountingService",
   "name": "Servicii De Contabilitate Anglia",
   "url": "https://adridari1987-spec.github.io/serviciicontabilitateanglia/",
-  "image": "https://adridari1987-spec.github.io/serviciicontabilitateanglia/og-image.png",
+  "image": "https://adridari1987-spec.github.io/serviciicontabilitateanglia/og-image.jpg",
   "logo": "https://adridari1987-spec.github.io/serviciicontabilitateanglia/apple-touch-icon.png",
   "telephone": "+447909451914",
   "email": "serviciidecontabilitateanglia@gmail.com",
@@ -222,6 +220,7 @@
             <div class="card__icon">💻</div>
             <h3>Raportare Making Tax Digital</h3>
             <p>Din aprilie 2026, cei care lucrează pe cont propriu și proprietarii de locuințe închiriate cu venituri de peste £50.000 raportează trimestrial la HMRC. Ne ocupăm noi de raportări.</p>
+            <a href="ghid-making-tax-digital.html" class="card__link">Află dacă ești inclus →</a>
           </article>
           <article class="card">
             <div class="card__icon">🛡️</div>
@@ -324,11 +323,16 @@
         <div class="section__head">
           <p class="eyebrow">Calculator gratuit</p>
           <h2>Self-employed sau firmă Ltd: ce te avantajează?</h2>
-          <p>Introdu profitul estimat pe un an și compară cât îți rămâne în mână în fiecare variantă (anul fiscal 2025/26).</p>
+          <p>Alege anul fiscal, introdu profitul estimat pe un an și compară cât îți rămâne în mână în fiecare variantă.</p>
         </div>
 
         <div class="calc calc--ltd" id="ltd-calc">
           <form class="calc__form" autocomplete="off" novalidate>
+            <fieldset class="an-fiscal">
+              <legend>Anul fiscal</legend>
+              <label><input type="radio" name="an" value="2026/27" checked> 2026/27 (anul curent)</label>
+              <label><input type="radio" name="an" value="2025/26"> 2025/26</label>
+            </fieldset>
             <label>Profit anual estimat
               <span class="money"><span>£</span><input type="number" name="profit" min="0" step="any" inputmode="decimal" placeholder="ex. 50000"></span>
               <small>Veniturile minus cheltuielile, înainte de impozite și de salariul tău.</small>
@@ -370,9 +374,9 @@
           </p>
           <a href="#contact" class="btn ltd__cta">Discută cu noi varianta potrivită</a>
         </div>
-        <p class="ltd__tip">O firmă Ltd poate ieși mai avantajoasă dacă lași o parte din profit în firmă, dacă plătești contribuții la pensie prin firmă sau dacă împarți acțiunile cu soțul sau soția. Îți facem calculul complet la consultația gratuită.</p>
+        <p class="ltd__tip">O firmă Ltd poate ieși mai avantajoasă dacă lași o parte din profit în firmă, dacă plătești contribuții la pensie prin firmă sau dacă împarți acțiunile cu soțul sau soția. Îți facem calculul complet la consultația gratuită. Citește și <a href="ghid-self-employed-ltd.html">ghidul Self-employed sau Ltd</a>.</p>
 
-        <p class="calc__note-dark">Este doar o estimare, nu consultanță fiscală. Pentru Ltd presupunem un salariu de director de £12.570 (sau mai mic, dacă profitul nu permite) și restul profitului scos ca dividende. Nu sunt incluse costurile de administrare a firmei (la noi, de la £100/lună), contribuțiile la pensie, Employment Allowance, alte venituri sau rezidența în Scoția. Ratele sunt cele pentru 2025/26, pentru Anglia, Țara Galilor și Irlanda de Nord.</p>
+        <p class="calc__note-dark">Este doar o estimare, nu consultanță fiscală. Pentru Ltd presupunem un salariu de director de £12.570 (sau mai mic, dacă profitul nu permite) și restul profitului scos ca dividende. Nu sunt incluse costurile de administrare a firmei (la noi, de la £100/lună), contribuțiile la pensie, Employment Allowance, alte venituri sau rezidența în Scoția. Ratele sunt cele pentru anul fiscal ales, pentru Anglia, Țara Galilor și Irlanda de Nord. Din aprilie 2026, impozitul pe dividende este de 10,75% (cota de bază) și 35,75% (cota superioară).</p>
       </div>
     </section>
 
@@ -600,6 +604,24 @@
             <div class="card__icon">🏠</div>
             <h3>Ipotecă sau refinanțare ca self-employed</h3>
             <p>Ce documente cere banca, cum îți calculează venitul și cum te pregătești din timp.</p>
+            <span class="card__link">Citește ghidul →</span>
+          </a>
+          <a class="card card--link" href="ghid-self-employed-ltd.html">
+            <div class="card__icon">🏢</div>
+            <h3>Self-employed sau firmă Ltd?</h3>
+            <p>Diferențele, când merită o firmă și pașii ca să treci la Ltd.</p>
+            <span class="card__link">Citește ghidul →</span>
+          </a>
+          <a class="card card--link" href="ghid-making-tax-digital.html">
+            <div class="card__icon">💻</div>
+            <h3>Making Tax Digital explicat simplu</h3>
+            <p>Pe cine afectează din 2026, ce termene ai și ce trebuie să faci.</p>
+            <span class="card__link">Citește ghidul →</span>
+          </a>
+          <a class="card card--link" href="ghid-taxe-chirii.html">
+            <div class="card__icon">🔑</div>
+            <h3>Taxe pe chirii pentru proprietari</h3>
+            <p>Ce declari, ce cheltuieli scazi și cum se tratează dobânda la ipotecă.</p>
             <span class="card__link">Citește ghidul →</span>
           </a>
         </div>
