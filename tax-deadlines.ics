@@ -10,9 +10,9 @@ DTSTAMP:20260925T090000Z
 DTSTART;VALUE=DATE:20261005
 DTEND;VALUE=DATE:20261006
 SUMMARY:Register for Self Assessment
-DESCRIPTION:If you started working for yourself (including under CIS) in 
- the 2025/26 tax year\, you must register with HMRC by this date.\n\nhttps
- ://adridari1987-spec.github.io/serviciicontabilitateanglia/
+DESCRIPTION:If you started working for yourself (including under CIS) in th
+ e 2025/26 tax year\, you must register with HMRC by this date.\n\nhttps://
+ serviciidecontabilitateanglia.github.io/
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -26,9 +26,8 @@ DTSTAMP:20260925T090000Z
 DTSTART;VALUE=DATE:20261031
 DTEND;VALUE=DATE:20261101
 SUMMARY:2025/26 paper tax return
-DESCRIPTION:Last day for paper Self Assessment returns. Online returns ar
- e due by 31 January.\n\nhttps://adridari1987-spec.github.io/serviciiconta
- bilitateanglia/
+DESCRIPTION:Last day for paper Self Assessment returns. Online returns are 
+ due by 31 January.\n\nhttps://serviciidecontabilitateanglia.github.io/
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -42,9 +41,9 @@ DTSTAMP:20260925T090000Z
 DTSTART;VALUE=DATE:20261107
 DTEND;VALUE=DATE:20261108
 SUMMARY:MTD quarterly update
-DESCRIPTION:For 6 July – 5 October 2026\, if you're in Making Tax Digit
- al (income over £50\,000).\n\nhttps://adridari1987-spec.github.io/servic
- iicontabilitateanglia/
+DESCRIPTION:For 6 July – 5 October 2026\, if you're in Making Tax Digital
+  (income over £50\,000).\n\nhttps://serviciidecontabilitateanglia.github.
+ io/
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -58,9 +57,9 @@ DTSTAMP:20260925T090000Z
 DTSTART;VALUE=DATE:20261230
 DTEND;VALUE=DATE:20261231
 SUMMARY:Pay through your PAYE tax code
-DESCRIPTION:If you're also employed and owe less than £3\,000\, file onl
- ine by today to have it collected through your wages.\n\nhttps://adridari
- 1987-spec.github.io/serviciicontabilitateanglia/
+DESCRIPTION:If you're also employed and owe less than £3\,000\, file onlin
+ e by today to have it collected through your wages.\n\nhttps://serviciidec
+ ontabilitateanglia.github.io/
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -74,9 +73,9 @@ DTSTAMP:20260925T090000Z
 DTSTART;VALUE=DATE:20270131
 DTEND;VALUE=DATE:20270201
 SUMMARY:2025/26 online tax return and payment
-DESCRIPTION:Final deadline to file online and pay your tax\, plus your fi
- rst payment on account for 2026/27. Filing late means a £100 penalty.\n\
- nhttps://adridari1987-spec.github.io/serviciicontabilitateanglia/
+DESCRIPTION:Final deadline to file online and pay your tax\, plus your firs
+ t payment on account for 2026/27. Filing late means a £100 penalty.\n\nht
+ tps://serviciidecontabilitateanglia.github.io/
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -90,8 +89,8 @@ DTSTAMP:20260925T090000Z
 DTSTART;VALUE=DATE:20270207
 DTEND;VALUE=DATE:20270208
 SUMMARY:MTD quarterly update
-DESCRIPTION:For 6 October 2026 – 5 January 2027.\n\nhttps://adridari198
- 7-spec.github.io/serviciicontabilitateanglia/
+DESCRIPTION:For 6 October 2026 – 5 January 2027.\n\nhttps://serviciidecon
+ tabilitateanglia.github.io/
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -105,9 +104,8 @@ DTSTAMP:20260925T090000Z
 DTSTART;VALUE=DATE:20270405
 DTEND;VALUE=DATE:20270406
 SUMMARY:End of the 2026/27 tax year
-DESCRIPTION:The tax year closes. Start gathering your records for the nex
- t return.\n\nhttps://adridari1987-spec.github.io/serviciicontabilitateang
- lia/
+DESCRIPTION:The tax year closes. Start gathering your records for the next 
+ return.\n\nhttps://serviciidecontabilitateanglia.github.io/
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -121,8 +119,8 @@ DTSTAMP:20260925T090000Z
 DTSTART;VALUE=DATE:20270507
 DTEND;VALUE=DATE:20270508
 SUMMARY:MTD quarterly update
-DESCRIPTION:For 6 January – 5 April 2027.\n\nhttps://adridari1987-spec.
- github.io/serviciicontabilitateanglia/
+DESCRIPTION:For 6 January – 5 April 2027.\n\nhttps://serviciidecontabilit
+ ateanglia.github.io/
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -136,8 +134,8 @@ DTSTAMP:20260925T090000Z
 DTSTART;VALUE=DATE:20270731
 DTEND;VALUE=DATE:20270801
 SUMMARY:Second payment on account for 2026/27
-DESCRIPTION:Your second payment on account\, if HMRC asked you to make th
- em.\n\nhttps://adridari1987-spec.github.io/serviciicontabilitateanglia/
+DESCRIPTION:Your second payment on account\, if HMRC asked you to make them
+ .\n\nhttps://serviciidecontabilitateanglia.github.io/
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
