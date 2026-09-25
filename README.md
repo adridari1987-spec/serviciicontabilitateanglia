@@ -77,9 +77,9 @@ Poți edita fișierele direct pe GitHub: deschizi fișierul, apeși pe creionul 
 
 ## Cum vezi site-ul
 
-**Site-ul este live:** https://adridari1987-spec.github.io/serviciicontabilitateanglia/
+**Site-ul este live:** https://serviciidecontabilitateanglia.github.io/
 
-Se publică automat cu GitHub Pages din ramura `main` (Settings → Pages). Orice modificare aplicată în `main` apare pe site în 1–2 minute. Dacă nu vezi schimbarea, apasă **Ctrl + F5**. Depozitul trebuie să rămână **public**, pentru că GitHub Pages gratuit funcționează doar pentru depozite publice.
+Se publică automat cu GitHub Pages din ramura `main` (Settings → Pages). Orice modificare aplicată în `main` apare pe site în 1–2 minute. Dacă nu vezi schimbarea, apasă **Ctrl + F5**. Depozitul trebuie să rămână **public**, pentru că GitHub Pages gratuit funcționează doar pentru depozite publice. Numele contului (`serviciidecontabilitateanglia`) și al depozitului (`serviciidecontabilitateanglia.github.io`) **nu trebuie schimbate**: din ele se formează adresa site-ului.
 
 **Pe calculatorul tău:** descarcă proiectul (butonul verde **Code**, apoi **Download ZIP**), dezarhivează-l și deschide `index.html` în browser.
 
