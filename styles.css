@@ -535,3 +535,46 @@ a { color: var(--primary); }
 
 /* Adresele lungi (e-mail, linkuri) se rup pe rândul următor pe ecrane înguste */
 .article, .faq, .footer, .banner { overflow-wrap: anywhere; }
+
+/* ========== Accesibilitate: „Sari la conținut” și contur la tastatură ========== */
+.skip-link {
+  position: absolute; left: 12px; top: -60px; z-index: 100;
+  background: var(--primary); color: #fff; padding: 10px 16px; border-radius: 8px; font-weight: 600; text-decoration: none;
+}
+.skip-link:focus { top: 12px; }
+a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 3px solid #e0a100; outline-offset: 2px;
+}
+
+/* ========== Banner de sezon (decembrie–ianuarie) ========== */
+.sezon { background: #fff7e6; border-bottom: 1px solid #f2d59b; }
+.sezon[hidden] { display: none; }
+.sezon__inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 10px; padding-bottom: 10px; flex-wrap: wrap; }
+.sezon p { margin: 0; font-weight: 600; color: #4a3b12; }
+
+/* ========== Formular: angajați doar pentru firme, notă de confidențialitate ========== */
+.form__row:has(> .form__angajati[hidden]) { grid-template-columns: 1fr; }
+.form__angajati[hidden] { display: none; }
+.form__privacy { margin: 0; font-size: 0.85rem; color: var(--muted); }
+
+/* ========== Bara de contact pe telefon ========== */
+.mobile-bar { display: none; }
+@media (max-width: 760px) {
+  .mobile-bar {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 30;
+    background: #fff; border-top: 1px solid var(--border); box-shadow: 0 -6px 20px rgba(15, 76, 129, 0.12);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .mobile-bar a {
+    display: flex; flex-direction: column; align-items: center; gap: 2px;
+    padding: 9px 4px 10px; text-decoration: none; font-weight: 600; font-size: 0.82rem; color: var(--primary);
+  }
+  .mobile-bar a + a { border-left: 1px solid var(--border); }
+  .mobile-bar a:nth-child(2) { color: #0e7a3f; }
+  .mobile-bar span { font-size: 1.25rem; line-height: 1; }
+  .wa-float { display: none; }
+  body { padding-bottom: 64px; }
+  .footer { padding-bottom: 28px; }
+}
+@media print { .mobile-bar, .sezon, .skip-link { display: none !important; } }

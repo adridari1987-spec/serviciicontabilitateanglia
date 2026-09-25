@@ -4,19 +4,22 @@ Site de prezentare pentru o firmă de contabilitate din Marea Britanie, pentru c
 
 ## Ce conține
 
-- **Prezentare**: mesaj principal, butoane „Cere o ofertă gratuită” și „Programează consultația gratuită” (Calendly); buton WhatsApp plutitor pe toate paginile
+- **Prezentare**: mesaj principal, butoane „Cere o ofertă gratuită” și „Programează consultația gratuită” (Calendly)
+- **Contact rapid**: pe telefon, bară fixă jos cu Sună · WhatsApp · Programează; pe calculator, buton WhatsApp plutitor
+- **Banner de sezon**: în decembrie și ianuarie arată automat câte zile mai sunt până la termenul din 31 ianuarie
 - **Servicii**: Self Assessment, CIS și recuperare taxe, administrare firme Ltd, raportare VAT, raportare Making Tax Digital, reprezentare în investigații HMRC
 - **Documente pentru ipotecă și refinanțare** (de la £200): banner sub servicii, cu nota că nu oferim consultanță de credit (activitate reglementată FCA)
 - **Calculator CIS**: estimează pe loc rambursarea CIS din venitul brut, suma reținută și cheltuieli (unelte, echipament de protecție, mile, transport, telefon, altele). Butonul de sub rezultat completează formularul de contact cu estimarea.
 - **Calculator Self-employed sau Ltd**: compară cât îți rămâne în mână ca self-employed și cu o firmă Ltd (salariu de £12.570 + dividende), pentru anul fiscal 2025/26 sau 2026/27
-- **Prețuri**: raportare MTD £75, raportare VAT £75, administrare Ltd de la £100/lună, investigații HMRC de la £250, prima consultație gratuită
+- **Prețuri**: Self Assessment / CIS de la £150, pachet MTD £300/an (4 raportări × £75, declarația anuală inclusă), administrare Ltd de la £100/lună, raportare VAT £75, documente pentru ipotecă de la £200, investigații HMRC de la £250, prima consultație gratuită
 - **Cum lucrăm**: 3 pași
-- **Termene fiscale**: următorul termen evidențiat, link „+ Google Calendar” la fiecare termen și fișier de calendar cu toate termenele
-- **Documente necesare**: liste pentru CIS/self-employed, Ltd și firmă nouă, cu buton de printare sau salvare PDF
+- **Termene fiscale** (pagina `termene.html` / `deadlines.html`): următorul termen evidențiat, link „+ Google Calendar” la fiecare termen și fișier de calendar cu toate termenele
+- **Documente necesare** (pagina `documente.html` / `documents.html`): liste pentru CIS/self-employed, Ltd și firmă nouă, cu buton de printare sau salvare PDF
 - **Ghiduri** (în română): numărul UTR, cheltuieli deductibile pe CIS, scrisori de la HMRC, ipotecă și refinanțare, self-employed sau Ltd, Making Tax Digital, taxe pe chirii
 - **Despre noi**
 - **Întrebări frecvente**: UTR, termenul Self Assessment, CIS, Making Tax Digital, self-employed sau Ltd, scrisori HMRC
-- **Contact**: formular de ofertă, telefon, WhatsApp, e-mail, oraș, program
+- **Contact**: formular de ofertă (câmpul „angajați” apare doar pentru firme Ltd), telefon, WhatsApp, e-mail, oraș, program
+- Pagina în engleză are și secțiunea **Guides**, cu linkuri spre ghidurile în română
 
 ## Fișiere
 
@@ -45,7 +48,7 @@ Cu cheia Web3Forms, formularul trimite mesajul direct pe e-mail. Fără cheie, d
 2. Cheia vine pe e-mail. Pune-o în `script.js`, la `const WEB3FORMS_KEY`, între ghilimele. **Activă acum**: formularul „Contact - Servicii De Contabilitate Anglia” din contul Web3Forms.
 3. Dacă serverul Web3Forms nu răspunde, formularul deschide automat aplicația de e-mail, deci nu se pierde niciun mesaj.
 
-Statistici de vizitare: https://contabilitateanglia.goatcounter.com (fără cookie-uri; codul e la sfârșitul fiecărei pagini HTML).
+Statistici de vizitare: https://contabilitateanglia.goatcounter.com (fără cookie-uri; codul e la sfârșitul fiecărei pagini HTML). La **Events** vezi acțiunile: `formular-trimis`, `click-whatsapp`, `click-telefon`, `click-programare`, `calculator-cis`, `calculator-ltd` (și `-cerere` când se apasă butonul de sub rezultat), `calendar-descarcat`, `calendar-google`, `documente-print`.
 
 Dacă modifici un text, modifică-l în **ambele** fișiere, `index.html` și `en.html`.
 
@@ -61,7 +64,7 @@ Calculatorul folosește ratele pentru anul fiscal **2025/26** (Anglia, Țara Gal
 
 La fiecare an fiscal nou:
 1. **Calculatoarele**: schimbă valorile din blocul `RATE` din `script.js` (iar pentru calculatorul Ltd adaugă noul an în `ANI_FISCALI`, cu cotele pentru dividende, și butonul lui în `index.html` și `en.html`), apoi anul fiscal din textele calculatoarelor în `index.html` și `en.html` (caută `2025/26`).
-2. **Termenele**: adaugă noile date în secțiunea „Termene fiscale” din `index.html` și `en.html`. Pe site, termenele trecute apar estompate automat. Regenerează și fișierele `.ics`.
+2. **Termenele**: adaugă noile date în `termene.html` și `deadlines.html`. Pe site, termenele trecute apar estompate automat. Regenerează și fișierele `.ics`.
 3. **Ghidurile**: verifică sumele (mile, lucru de acasă, amenzi) și data „Actualizat”.
 
 ## De verificat

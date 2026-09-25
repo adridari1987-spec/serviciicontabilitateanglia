@@ -131,6 +131,7 @@
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- ========== HEADER ========== -->
   <header class="header">
@@ -144,7 +145,8 @@
           <a href="#services">Services</a>
           <a href="#cis-calculator">Calculators</a>
           <a href="#pricing">Pricing</a>
-          <a href="#deadlines">Deadlines</a>
+          <a href="deadlines.html">Deadlines</a>
+          <a href="#guides">Guides</a>
           <a href="#faq">FAQ</a>
           <a href="#contact" class="btn btn--small">Get a quote</a>
         </nav>
@@ -159,7 +161,13 @@
     </div>
   </header>
 
-  <main>
+  <main id="main">
+    <div class="sezon" data-sezon hidden data-text="⏰ {n} days left until 31 January, the Self Assessment deadline." data-ultima="⏰ Today is the last day to file your Self Assessment!">
+      <div class="container sezon__inner">
+        <p data-sezon-text></p>
+        <a href="#contact" class="btn btn--small" data-tip="Self-employed">Get a quote</a>
+      </div>
+    </div>
     <!-- ========== HERO ========== -->
     <section class="hero" id="home">
       <div class="container hero__inner">
@@ -387,26 +395,28 @@
           <h2>Clear prices, agreed up front</h2>
           <p>Prices marked “from” depend on the amount of work. Your first consultation is free.</p>
         </div>
-        <div class="grid grid--4 pricing">
+        <div class="grid grid--3 pricing">
           <article class="price-card">
-            <h3>MTD reporting</h3>
-            <p class="price"><span>fixed fee</span> £75 <small>/ submission</small></p>
+            <h3>Self Assessment / CIS</h3>
+            <p class="price"><span>from</span> £150 <small>/ return</small></p>
             <ul>
-              <li>Digital submission to HMRC</li>
-              <li>Income and expense records</li>
-              <li>Checked before sending</li>
+              <li>Annual Tax Return</li>
+              <li>Every allowable expense claimed</li>
+              <li>CIS refund claim</li>
+              <li>HMRC letters explained</li>
             </ul>
-            <a href="#contact" class="btn btn--ghost btn--block">Get a quote</a>
+            <a href="#contact" class="btn btn--ghost btn--block" data-tip="Self-employed">Get a quote</a>
           </article>
           <article class="price-card">
-            <h3>VAT reporting</h3>
-            <p class="price"><span>fixed fee</span> £75 <small>/ return</small></p>
+            <h3>Making Tax Digital package</h3>
+            <p class="price"><span>fixed fee</span> £300 <small>/ year</small></p>
             <ul>
-              <li>VAT Return prepared</li>
-              <li>VAT payable or reclaimable calculated</li>
-              <li>Filed through Making Tax Digital</li>
+              <li>4 quarterly updates (£75 each)</li>
+              <li>Annual final declaration included</li>
+              <li>MTD-compatible digital records</li>
+              <li>We track the deadlines</li>
             </ul>
-            <a href="#contact" class="btn btn--ghost btn--block">Get a quote</a>
+            <a href="#contact" class="btn btn--ghost btn--block" data-tip="Making Tax Digital reporting">Get a quote</a>
           </article>
           <article class="price-card price-card--featured">
             <span class="tag">Most popular</span>
@@ -418,7 +428,27 @@
               <li>Corporation Tax return</li>
               <li>Confirmation Statement</li>
             </ul>
-            <a href="#contact" class="btn btn--block">Get a quote</a>
+            <a href="#contact" class="btn btn--block" data-tip="Limited company">Get a quote</a>
+          </article>
+          <article class="price-card">
+            <h3>VAT reporting</h3>
+            <p class="price"><span>fixed fee</span> £75 <small>/ return</small></p>
+            <ul>
+              <li>VAT Return prepared</li>
+              <li>VAT payable or reclaimable calculated</li>
+              <li>Filed through Making Tax Digital</li>
+            </ul>
+            <a href="#contact" class="btn btn--ghost btn--block" data-tip="Limited company with VAT">Get a quote</a>
+          </article>
+          <article class="price-card">
+            <h3>Mortgage documents</h3>
+            <p class="price"><span>from</span> £200</p>
+            <ul>
+              <li>SA302s and Tax Year Overviews</li>
+              <li>Annual accounts</li>
+              <li>Accountant's income letter</li>
+            </ul>
+            <a href="#contact" class="btn btn--ghost btn--block" data-tip="Mortgage / remortgage documents">Get a quote</a>
           </article>
           <article class="price-card">
             <h3>HMRC investigations</h3>
@@ -428,11 +458,10 @@
               <li>Documents prepared</li>
               <li>We deal with HMRC for you</li>
             </ul>
-            <a href="#contact" class="btn btn--ghost btn--block">Get a quote</a>
+            <a href="#contact" class="btn btn--ghost btn--block" data-tip="HMRC investigation / letter">Get a quote</a>
           </article>
         </div>
-        <p class="note">Mortgage and remortgage documents: <strong>from £200</strong>.</p>
-        <p class="note">For Self Assessment, CIS and other services, we agree the price after your <strong>free first consultation</strong>.</p>
+        <p class="note">For other services, we agree the price after your <strong>free first consultation</strong>.</p>
       </div>
     </section>
 
@@ -457,123 +486,69 @@
           <li>
             <span class="steps__num">3</span>
             <h3>We handle the rest</h3>
-            <p>Send us your documents online and we take care of HMRC and the deadlines.</p>
+            <p>Send us your documents online (<a href="documents.html">see the checklist</a>) and we take care of HMRC and the deadlines.</p>
           </li>
         </ol>
       </div>
     </section>
 
-    <!-- ========== TAX DEADLINES ========== -->
-    <section class="section section--alt" id="deadlines">
-      <div class="container container--narrow">
-        <div class="section__head">
-          <p class="eyebrow">Tax deadlines</p>
-          <h2>Never miss an HMRC deadline</h2>
-          <p>Key dates for self-employed people, CIS subcontractors and Making Tax Digital. Add them to your calendar to get a reminder.</p>
-        </div>
-
-        <p class="termene__next" data-termen-urmator hidden>Next deadline: <strong data-termen-titlu></strong>, <span data-termen-zile></span></p>
-
-        <ol class="termene" data-calendar-label="+ Google Calendar" data-azi="today" data-maine="tomorrow" data-zile="in {n} days">
-          <li data-date="2026-10-05">
-            <time datetime="2026-10-05">5 Oct 2026</time>
-            <div><h3>Register for Self Assessment</h3><p>If you started working for yourself (including under CIS) in the 2025/26 tax year, you must register with HMRC by this date.</p></div>
-          </li>
-          <li data-date="2026-10-31">
-            <time datetime="2026-10-31">31 Oct 2026</time>
-            <div><h3>2025/26 paper tax return</h3><p>Last day for paper Self Assessment returns. Online returns are due by 31 January.</p></div>
-          </li>
-          <li data-date="2026-11-07">
-            <time datetime="2026-11-07">7 Nov 2026</time>
-            <div><h3>MTD quarterly update</h3><p>For 6 July – 5 October 2026, if you're in Making Tax Digital (income over £50,000).</p></div>
-          </li>
-          <li data-date="2026-12-30">
-            <time datetime="2026-12-30">30 Dec 2026</time>
-            <div><h3>Pay through your PAYE tax code</h3><p>If you're also employed and owe less than £3,000, file online by today to have it collected through your wages.</p></div>
-          </li>
-          <li data-date="2027-01-31">
-            <time datetime="2027-01-31">31 Jan 2027</time>
-            <div><h3>2025/26 online tax return and payment</h3><p>Final deadline to file online and pay your tax, plus your first payment on account for 2026/27. Filing late means a £100 penalty.</p></div>
-          </li>
-          <li data-date="2027-02-07">
-            <time datetime="2027-02-07">7 Feb 2027</time>
-            <div><h3>MTD quarterly update</h3><p>For 6 October 2026 – 5 January 2027.</p></div>
-          </li>
-          <li data-date="2027-04-05">
-            <time datetime="2027-04-05">5 Apr 2027</time>
-            <div><h3>End of the 2026/27 tax year</h3><p>The tax year closes. Start gathering your records for the next return.</p></div>
-          </li>
-          <li data-date="2027-05-07">
-            <time datetime="2027-05-07">7 May 2027</time>
-            <div><h3>MTD quarterly update</h3><p>For 6 January – 5 April 2027.</p></div>
-          </li>
-          <li data-date="2027-07-31">
-            <time datetime="2027-07-31">31 Jul 2027</time>
-            <div><h3>Second payment on account for 2026/27</h3><p>Your second payment on account, if HMRC asked you to make them.</p></div>
-          </li>
-        </ol>
-
-        <div class="termene__actions">
-          <a href="tax-deadlines.ics" class="btn" download>Add all to my calendar</a>
-        </div>
-        <p class="note">CIS contractors file their monthly CIS return by the 19th of every month. VAT, Corporation Tax and limited company accounts deadlines depend on your company's financial year. We work them out for every client.</p>
-      </div>
-    </section>
-
-    <!-- ========== DOCUMENT CHECKLIST ========== -->
-    <section class="section" id="documents">
+    <!-- ========== GUIDES ========== -->
+    <section class="section section--alt" id="guides">
       <div class="container">
         <div class="section__head">
-          <p class="eyebrow">Get ready</p>
-          <h2>What documents to send us</h2>
-          <p>The documents we need, depending on your situation. You can print it or save it as a PDF.</p>
+          <p class="eyebrow">Free guides</p>
+          <h2>UK tax explained in plain language</h2>
+          <p>Our guides are written in Romanian for the Romanian community in the UK. Your browser's translate button works well if you prefer English.</p>
         </div>
-        <div class="grid grid--3 docs">
-          <article class="card">
-            <h3>CIS and self-employed</h3>
-            <ul class="docs__list">
-              <li>Your UTR and National Insurance number</li>
-              <li>All monthly CIS statements for the tax year</li>
-              <li>Bank statements for the whole year</li>
-              <li>Invoices and receipts for tools, equipment and protective clothing</li>
-              <li>A mileage log (date, destination, miles)</li>
-              <li>Phone and internet bills</li>
-              <li>Other income: P60 or P45 from an employer, rent</li>
-            </ul>
-          </article>
-          <article class="card">
-            <h3>Limited company</h3>
-            <ul class="docs__list">
-              <li>Company bank statements, monthly</li>
-              <li>Sales invoices</li>
-              <li>Purchase invoices and receipts</li>
-              <li>Lease or loan agreements</li>
-              <li>Payroll records, if we don't run your payroll</li>
-              <li>Your Companies House authentication code</li>
-              <li>Company UTR and VAT number, if you have one</li>
-            </ul>
-          </article>
-          <article class="card">
-            <h3>New company (setup)</h3>
-            <ul class="docs__list">
-              <li>Your preferred company name, plus 1–2 alternatives</li>
-              <li>Registered office address</li>
-              <li>For each director: name, date of birth, nationality, address</li>
-              <li>Each director's National Insurance number</li>
-              <li>Valid photo ID for Companies House identity verification</li>
-              <li>What the company does</li>
-              <li>Shareholders and number of shares</li>
-            </ul>
-          </article>
-        </div>
-        <div class="termene__actions">
-          <button type="button" class="btn btn--ghost" data-print-docs>Print or save as PDF</button>
+        <div class="grid grid--4">
+          <a class="card card--link" href="ghid-utr.html" hreflang="ro">
+            <div class="card__icon">🪪</div>
+            <h3>How to get your UTR number</h3>
+            <p>Registering as self-employed with HMRC: what you need and by when.</p>
+            <span class="card__link">Read (in Romanian) →</span>
+          </a>
+          <a class="card card--link" href="ghid-cheltuieli-cis.html" hreflang="ro">
+            <div class="card__icon">🧰</div>
+            <h3>CIS allowable expenses</h3>
+            <p>Tools, mileage, workwear and more: what reduces your tax and what doesn't.</p>
+            <span class="card__link">Read (in Romanian) →</span>
+          </a>
+          <a class="card card--link" href="ghid-scrisoare-hmrc.html" hreflang="ro">
+            <div class="card__icon">✉️</div>
+            <h3>Got a letter from HMRC?</h3>
+            <p>How to check it's genuine, what it means and what to do next.</p>
+            <span class="card__link">Read (in Romanian) →</span>
+          </a>
+          <a class="card card--link" href="ghid-ipoteca-refinantare.html" hreflang="ro">
+            <div class="card__icon">🏠</div>
+            <h3>Mortgages for the self-employed</h3>
+            <p>What lenders ask for, how they work out your income and how to prepare.</p>
+            <span class="card__link">Read (in Romanian) →</span>
+          </a>
+          <a class="card card--link" href="ghid-self-employed-ltd.html" hreflang="ro">
+            <div class="card__icon">🏢</div>
+            <h3>Self-employed or limited company?</h3>
+            <p>The differences, when a company is worth it and how to switch.</p>
+            <span class="card__link">Read (in Romanian) →</span>
+          </a>
+          <a class="card card--link" href="ghid-making-tax-digital.html" hreflang="ro">
+            <div class="card__icon">💻</div>
+            <h3>Making Tax Digital explained</h3>
+            <p>Who it affects from 2026, the deadlines and what you need to do.</p>
+            <span class="card__link">Read (in Romanian) →</span>
+          </a>
+          <a class="card card--link" href="ghid-taxe-chirii.html" hreflang="ro">
+            <div class="card__icon">🔑</div>
+            <h3>Tax on rental income</h3>
+            <p>What to declare, which costs you can deduct and how mortgage interest works.</p>
+            <span class="card__link">Read (in Romanian) →</span>
+          </a>
         </div>
       </div>
     </section>
 
     <!-- ========== ABOUT US ========== -->
-    <section class="section section--alt" id="about">
+    <section class="section" id="about">
       <div class="container about">
         <div>
           <p class="eyebrow">About us</p>
@@ -591,7 +566,7 @@
     </section>
 
     <!-- ========== FAQ ========== -->
-    <section class="section" id="faq">
+    <section class="section section--alt" id="faq">
       <div class="container container--narrow">
         <div class="section__head">
           <p class="eyebrow">FAQ</p>
@@ -673,17 +648,14 @@
                 <option>Something else</option>
               </select>
             </label>
-            <label>Number of employees
+            <label class="form__angajati" hidden>Number of employees
               <input type="number" name="angajati" min="0" value="0">
             </label>
           </div>
           <label>Message
             <textarea name="mesaj" rows="4" placeholder="Tell us briefly how we can help"></textarea>
           </label>
-          <label class="form__consent">
-            <input type="checkbox" required>
-            <span>I agree to my personal data being used to prepare a quote.</span>
-          </label>
+          <p class="form__privacy">We only use your details to reply and prepare your quote. See our <a href="privacy.html">privacy policy</a>.</p>
           <button type="submit" class="btn btn--block">Send request</button>
           <p class="form__hint" data-hint-direct="We'll reply within 24 hours.">Your e-mail app will open with the message filled in.</p>
           <p class="form__status" role="status" hidden></p>
@@ -696,7 +668,7 @@
   <footer class="footer">
     <div class="container footer__inner">
       <p><strong>Servicii De Contabilitate Anglia</strong> · London, United Kingdom</p>
-      <p><a href="privacy.html">Privacy policy</a> · © <span id="an"></span> All rights reserved.</p>
+      <p><a href="en.html#guides">Guides</a> · <a href="deadlines.html">Tax deadlines</a> · <a href="documents.html">Documents checklist</a> · <a href="privacy.html">Privacy policy</a> · © <span id="an"></span> All rights reserved.</p>
     </div>
   </footer>
 
@@ -705,6 +677,11 @@
     <span>WhatsApp</span>
   </a>
 
+  <nav class="mobile-bar" aria-label="Quick contact">
+    <a href="tel:+447909451914"><span aria-hidden="true">📞</span>Call</a>
+    <a href="https://wa.me/447909451914?text=Hello%21%20I%27d%20like%20some%20information%20about%20your%20accounting%20services." target="_blank" rel="noopener"><span aria-hidden="true">💬</span>WhatsApp</a>
+    <a href="https://calendly.com/serviciidecontabilitateanglia/30min" target="_blank" rel="noopener"><span aria-hidden="true">📅</span>Book</a>
+  </nav>
   <script src="script.js"></script>
   <script data-goatcounter="https://contabilitateanglia.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>

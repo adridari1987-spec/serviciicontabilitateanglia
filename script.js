@@ -26,6 +26,21 @@ const TEXTE = {
 };
 const t = TEXTE[document.documentElement.lang] || TEXTE.ro;
 
+// Numără o acțiune în GoatCounter (apare la „Events” în panoul de statistici)
+const numara = (nume) => window.goatcounter?.count?.({ path: nume, title: nume, event: true });
+
+// Click-uri pe WhatsApp, telefon, Calendly și calendar, oriunde în pagină
+document.addEventListener("click", (e) => {
+  const a = e.target.closest("a[href]");
+  if (!a) return;
+  const h = a.getAttribute("href");
+  if (h.startsWith("https://wa.me")) numara("click-whatsapp");
+  else if (h.startsWith("tel:")) numara("click-telefon");
+  else if (h.includes("calendly.com")) numara("click-programare");
+  else if (h.endsWith(".ics")) numara("calendar-descarcat");
+  else if (a.classList.contains("termen__add")) numara("calendar-google");
+});
+
 // Meniul pentru telefon
 const toggle = document.querySelector(".nav-toggle");
 const nav = document.querySelector(".nav");
@@ -48,6 +63,13 @@ const formular = document.getElementById("contact-form");
 const hint = formular?.querySelector(".form__hint");
 if (WEB3FORMS_KEY && hint?.dataset.hintDirect) hint.textContent = hint.dataset.hintDirect;
 
+const campAngajati = formular?.querySelector(".form__angajati");
+const actualizeazaAngajati = () => {
+  if (campAngajati) campAngajati.hidden = !/Ltd|Limited/.test(formular.elements.tip.value);
+};
+formular?.elements.tip.addEventListener("change", actualizeazaAngajati);
+actualizeazaAngajati();
+
 formular?.addEventListener("submit", async (e) => {
   e.preventDefault();
   const date = new FormData(e.target);
@@ -59,7 +81,7 @@ formular?.addEventListener("submit", async (e) => {
     `${t.telefon}: ${date.get("telefon")}`,
     `${t.email}: ${date.get("email")}`,
     `${t.tip}: ${date.get("tip")}`,
-    `${t.angajati}: ${date.get("angajati")}`,
+    ...(campAngajati && !campAngajati.hidden ? [`${t.angajati}: ${date.get("angajati")}`] : []),
     "",
     `${t.mesaj}: ${date.get("mesaj")}`,
   ].join("\n");
@@ -68,7 +90,7 @@ formular?.addEventListener("submit", async (e) => {
     window.location.href =
       `mailto:${EMAIL_FIRMA}?subject=${encodeURIComponent(subiect)}&body=${encodeURIComponent(corp)}`;
   };
-  if (!WEB3FORMS_KEY) return deschideEmail();
+  if (!WEB3FORMS_KEY) { numara("formular-email"); return deschideEmail(); }
 
   const status = formular.querySelector(".form__status");
   const buton = formular.querySelector("[type=submit]");
@@ -91,9 +113,12 @@ formular?.addEventListener("submit", async (e) => {
     const rezultat = await raspuns.json();
     if (!rezultat.success) throw new Error(rezultat.message);
     arata(t.trimis, "ok");
+    numara("formular-trimis");
     formular.reset();
+    actualizeazaAngajati();
   } catch {
     arata(t.eroare, "eroare");
+    numara("formular-eroare");
     deschideEmail();
   } finally {
     buton.disabled = false;
@@ -106,8 +131,24 @@ document.querySelectorAll("[data-tip]").forEach((btn) =>
     const tip = formular?.elements.tip;
     const optiune = tip && [...tip.options].find((o) => o.text === btn.dataset.tip);
     if (optiune) tip.value = optiune.value;
+    actualizeazaAngajati();
   })
 );
+
+// Banner de sezon: în decembrie și ianuarie, zilele rămase până la termenul din 31 ianuarie
+const sezon = document.querySelector("[data-sezon]");
+if (sezon) {
+  const azi = new Date();
+  azi.setHours(0, 0, 0, 0);
+  const luna = azi.getMonth();
+  if (luna === 11 || luna === 0) {
+    const termen = new Date(luna === 11 ? azi.getFullYear() + 1 : azi.getFullYear(), 0, 31);
+    const zile = Math.round((termen - azi) / 86400000);
+    sezon.querySelector("[data-sezon-text]").textContent =
+      zile === 0 ? sezon.dataset.ultima : sezon.dataset.text.replace("{n}", zile);
+    sezon.hidden = false;
+  }
+}
 
 // Anul curent în subsol
 const an = document.getElementById("an");
@@ -208,6 +249,7 @@ if (calc) {
       transport: numar("transport"), telefon: numar("telefon"), altele: numar("altele"),
     });
     ultimRezultat = brut ? r : null;
+    if (brut && !calc.dataset.numarat) { calc.dataset.numarat = "da"; numara("calculator-cis"); }
 
     const stare = !brut ? "gol" : r.rezultat >= 0 ? "rambursare" : "plata";
     calc.querySelectorAll("[data-show]").forEach((el) => { el.hidden = el.dataset.show !== stare; });
@@ -222,6 +264,7 @@ if (calc) {
 
   // Butonul de sub rezultat completează formularul de contact
   calc.querySelector(".calc__cta").addEventListener("click", () => {
+    numara("calculator-cis-cerere");
     const contact = document.getElementById("contact-form");
     const optiune = [...contact.elements.tip.options].find((o) => o.text.includes("CIS"));
     if (optiune) contact.elements.tip.value = optiune.value;
@@ -287,6 +330,7 @@ if (ltd) {
     r.diferenta = Math.abs(r.ltdNet - r.seNet);
     const castigator = r.ltdNet > r.seNet ? "ltd" : "se";
     ultim = profit ? { profit, an, castigator, diferenta: r.diferenta } : null;
+    if (profit && !ltd.dataset.numarat) { ltd.dataset.numarat = "da"; numara("calculator-ltd"); }
 
     sectiune.querySelectorAll("[data-ltd-out]").forEach((el) => { el.textContent = lire.format(r[el.dataset.ltdOut]); });
     sectiune.querySelectorAll("[data-ltd-show]").forEach((el) => {
@@ -303,6 +347,7 @@ if (ltd) {
 
   // Butonul de sub comparație completează formularul de contact
   sectiune.querySelector(".ltd__cta").addEventListener("click", () => {
+    numara("calculator-ltd-cerere");
     const contact = document.getElementById("contact-form");
     if (!contact || !ultim) return;
     const en = document.documentElement.lang === "en";
@@ -360,6 +405,7 @@ if (termene) {
 document.querySelectorAll("[data-print-docs]").forEach((btn) =>
   btn.addEventListener("click", () => {
     document.body.classList.add("print-docs");
+    numara("documente-print");
     window.print();
   })
 );
