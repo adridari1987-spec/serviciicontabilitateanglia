@@ -358,3 +358,122 @@ a { color: var(--primary); }
   .calc__grid { grid-template-columns: 1fr; }
   .calc__form, .calc__result { padding: 20px; }
 }
+
+/* ========== „Despre noi” pe fundal alb ========== */
+.section:not(.section--alt) .checklist li { background: var(--bg-alt); }
+
+/* ========== Calculator Self-employed sau Ltd ========== */
+.calc--ltd { grid-template-columns: 1fr 2fr; }
+.calc--ltd .calc__form { gap: 12px; }
+.calc__hint-dark { color: var(--muted); margin: 0; font-size: 0.9rem; }
+.compare { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.compare__card {
+  background: #fff; border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 24px; position: relative; transition: border-color 0.2s, box-shadow 0.2s;
+}
+.compare__card.is-best { border: 2px solid var(--accent); box-shadow: var(--shadow); }
+.compare__card.is-best::before {
+  content: "✓"; position: absolute; top: -14px; right: 18px;
+  width: 28px; height: 28px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--accent); color: #fff; font-weight: 700;
+}
+.compare__label { margin: 0; color: var(--muted); font-size: 0.85rem; }
+.compare__amount { font-size: 2rem; font-weight: 700; color: var(--primary); margin: 2px 0 12px; }
+.compare__rows { margin: 0; }
+.compare__rows div { display: flex; justify-content: space-between; gap: 10px; padding: 7px 0; border-top: 1px solid var(--border); font-size: 0.9rem; }
+.compare__rows dt { color: var(--muted); }
+.compare__rows dd { margin: 0; font-weight: 600; white-space: nowrap; }
+.verdict {
+  margin-top: 24px; background: var(--primary); color: #fff; border-radius: var(--radius);
+  padding: 20px 26px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;
+}
+.verdict[hidden] { display: none; }
+.verdict__text { margin: 0; font-size: 1.1rem; }
+.verdict__text strong { color: #8fe3c4; }
+.ltd__cta { background: #fff; color: var(--primary); border-color: #fff; }
+.ltd__cta:hover { background: #eaf2fa; border-color: #eaf2fa; color: var(--primary-dark); }
+.calc__note-dark { font-size: 0.8rem; color: var(--muted); margin: 18px 0 0; text-align: center; }
+
+/* ========== Termene fiscale ========== */
+.termene__next {
+  background: #fff; border-left: 4px solid var(--accent); border-radius: 10px;
+  padding: 14px 18px; margin: 0 0 24px; box-shadow: var(--shadow);
+}
+.termene { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.termene li {
+  display: grid; grid-template-columns: 130px 1fr; gap: 18px; align-items: start;
+  background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px;
+}
+.termene time { font-weight: 700; color: var(--primary); }
+.termene h3 { font-size: 1rem; margin: 0 0 4px; }
+.termene p { margin: 0; color: var(--muted); font-size: 0.93rem; }
+.termene li.is-next { border: 2px solid var(--accent); }
+.termene li.is-past { opacity: 0.5; }
+.termene li.is-past .termen__add { display: none; }
+.termen__add { display: inline-block; margin-top: 8px; font-size: 0.85rem; font-weight: 600; text-decoration: none; }
+.termen__add:hover { text-decoration: underline; }
+.termene__actions { text-align: center; margin-top: 28px; }
+
+/* ========== Documente necesare ========== */
+.docs__list { list-style: none; padding: 0; margin: 12px 0 0; }
+.docs__list li { position: relative; padding: 7px 0 7px 28px; border-top: 1px solid var(--border); color: var(--text); font-size: 0.95rem; }
+.docs__list li::before {
+  content: ""; position: absolute; left: 0; top: 10px; width: 16px; height: 16px;
+  border: 2px solid var(--accent); border-radius: 4px;
+}
+
+/* ========== Carduri-link (ghiduri) ========== */
+.card--link { display: block; text-decoration: none; color: inherit; }
+.card--link h3 { color: var(--text); }
+.card--link:hover h3 { color: var(--primary); }
+
+/* ========== Pagini de ghid și confidențialitate ========== */
+.article h1 { font-size: clamp(1.8rem, 4vw, 2.5rem); }
+.article h2 { font-size: 1.35rem; margin-top: 1.8em; }
+.article p, .article li { color: #33424f; }
+.article ul, .article ol { padding-left: 1.3em; margin: 0 0 1em; }
+.article li { margin-bottom: 0.5em; }
+.article__meta { color: var(--muted); font-size: 0.88rem; }
+.article__cta { margin-top: 48px; background: var(--bg-alt); border-radius: var(--radius); padding: 28px; }
+.article__cta h2 { margin-top: 0; }
+.article__cta .hero__actions { margin: 16px 0 0; }
+
+/* ========== Subsol ========== */
+.footer a { color: #d6e4f2; }
+.footer { padding-bottom: 90px; }
+
+/* ========== Buton WhatsApp plutitor ========== */
+.wa-float {
+  position: fixed; right: 20px; bottom: 20px; z-index: 20;
+  display: flex; align-items: center; gap: 8px;
+  background: #0e7a3f; color: #fff; text-decoration: none; font-weight: 600;
+  padding: 12px 18px 12px 14px; border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s, background 0.2s;
+}
+.wa-float:hover { transform: translateY(-2px); background: #0b6534; }
+
+@media (max-width: 900px) {
+  .calc--ltd { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .compare { grid-template-columns: 1fr; }
+  .termene li { grid-template-columns: 1fr; gap: 6px; }
+  .verdict { padding: 18px; }
+  .wa-float { padding: 14px; right: 16px; bottom: 16px; }
+  .wa-float span { display: none; }
+}
+
+/* ========== Printare ========== */
+@media print {
+  .wa-float, .header, .footer, .nav-toggle { display: none !important; }
+  body.print-docs main > section:not(#documente):not(#documents) { display: none; }
+  body.print-docs .termene__actions { display: none; }
+  body.print-docs #documente, body.print-docs #documents { padding: 0; }
+  body.print-docs .grid--3 { grid-template-columns: 1fr; }
+  .card { break-inside: avoid; box-shadow: none; }
+}
+.ltd__tip { text-align: center; max-width: 760px; margin: 18px auto 0; color: var(--text); }
+.nav a, .logo__text, .btn--small { white-space: nowrap; }
+@media (max-width: 520px) { .logo__text { white-space: normal; } }

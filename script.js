@@ -33,7 +33,8 @@ nav.querySelectorAll("a").forEach((link) =>
 );
 
 // Formularul de contact: deschide aplicația de e-mail cu mesajul completat
-document.getElementById("contact-form").addEventListener("submit", (e) => {
+// (există doar pe paginile principale, nu și pe ghiduri)
+document.getElementById("contact-form")?.addEventListener("submit", (e) => {
   e.preventDefault();
   const date = new FormData(e.target);
 
@@ -53,7 +54,8 @@ document.getElementById("contact-form").addEventListener("submit", (e) => {
 });
 
 // Anul curent în subsol
-document.getElementById("an").textContent = new Date().getFullYear();
+const an = document.getElementById("an");
+if (an) an.textContent = new Date().getFullYear();
 
 // ========== Calculator CIS ==========
 // Ratele pentru anul fiscal 2025/26 (Anglia, Țara Galilor și Irlanda de Nord).
@@ -74,26 +76,49 @@ const RATE = {
   mileLimita: 10000,          // 45p/milă până aici, 25p după
   mileCotaMare: 0.45,
   mileCotaMica: 0.25,
+  // Firmă Ltd
+  salariuDirector: 12570,     // salariul presupus pentru director
+  niAngajatorPrag: 5000,      // NI angajator: 15% peste acest prag
+  niAngajatorCota: 0.15,
+  ctCotaMica: 0.19,           // Corporation Tax: 19% până la £50.000 profit
+  ctCotaMare: 0.25,           // 25% peste £250.000, cu reducere marginală între
+  ctPragMic: 50000,
+  ctPragMare: 250000,
+  ctFractieMarginala: 3 / 200,
+  alocatieDividende: 500,     // primii £500 din dividende nu se impozitează
+  divCote: [0.0875, 0.3375, 0.3935], // dividende: bază / superioară / adițională
 };
+
+// Alocația personală scade cu £1 la fiecare £2 de venit peste prag
+function alocatiePentru(venit) {
+  return Math.max(RATE.alocatiePersonala - Math.max(venit - RATE.pragReducereAlocatie, 0) / 2, 0);
+}
+
+// Impozitul pe partea de venit impozabil dintre „de la” și „până la”, pe benzile 20/40/45%
+// (cote = [bază, superioară, adițională]; pentru dividende se folosesc alte cote)
+function impozitPeBenzi(dela, panaLa, cote) {
+  const felie = (min, max) => Math.max(Math.min(panaLa, max) - Math.max(dela, min), 0);
+  return felie(0, RATE.bandaDeBaza) * cote[0] +
+    felie(RATE.bandaDeBaza, RATE.pragAditional) * cote[1] +
+    felie(RATE.pragAditional, Infinity) * cote[2];
+}
+
+// Impozit pe venit + Class 4 NI pentru un profit de self-employed
+function taxeSelfEmployed(profit) {
+  const impozabil = Math.max(profit - alocatiePentru(profit), 0);
+  const impozit = impozitPeBenzi(0, impozabil, [RATE.cotaDeBaza, RATE.cotaSuperioara, RATE.cotaAditionala]);
+  const ni =
+    Math.max(Math.min(profit, RATE.niPragSuperior) - RATE.niPragInferior, 0) * RATE.niCotaPrincipala +
+    Math.max(profit - RATE.niPragSuperior, 0) * RATE.niCotaSuperioara;
+  return { impozit, ni };
+}
 
 function calculeazaCIS(d) {
   const mile = Math.min(d.mile, RATE.mileLimita) * RATE.mileCotaMare +
     Math.max(d.mile - RATE.mileLimita, 0) * RATE.mileCotaMica;
   const cheltuieli = d.unelte + d.protectie + d.transport + d.telefon + d.altele + mile;
   const profit = Math.max(d.brut - cheltuieli, 0);
-
-  const alocatie = Math.max(
-    RATE.alocatiePersonala - Math.max(profit - RATE.pragReducereAlocatie, 0) / 2, 0);
-  const impozabil = Math.max(profit - alocatie, 0);
-  const impozit =
-    Math.min(impozabil, RATE.bandaDeBaza) * RATE.cotaDeBaza +
-    Math.max(Math.min(impozabil, RATE.pragAditional) - RATE.bandaDeBaza, 0) * RATE.cotaSuperioara +
-    Math.max(impozabil - RATE.pragAditional, 0) * RATE.cotaAditionala;
-
-  const ni =
-    Math.max(Math.min(profit, RATE.niPragSuperior) - RATE.niPragInferior, 0) * RATE.niCotaPrincipala +
-    Math.max(profit - RATE.niPragSuperior, 0) * RATE.niCotaSuperioara;
-
+  const { impozit, ni } = taxeSelfEmployed(profit);
   const datorat = impozit + ni;
   return { brut: d.brut, cheltuieli, profit, impozit, ni, datorat, retinut: d.retinut, rezultat: d.retinut - datorat };
 }
@@ -146,3 +171,132 @@ if (calc) {
     }
   });
 }
+
+// ========== Calculator Self-employed sau Ltd ==========
+function calculeazaLtd(profit) {
+  // Salariul directorului: £12.570, sau cât permite profitul (inclusiv NI angajator)
+  const costSalariu = (sal) => sal + Math.max(sal - RATE.niAngajatorPrag, 0) * RATE.niAngajatorCota;
+  let salariu = RATE.salariuDirector;
+  if (costSalariu(salariu) > profit) {
+    salariu = profit <= RATE.niAngajatorPrag ? profit
+      : (profit + RATE.niAngajatorPrag * RATE.niAngajatorCota) / (1 + RATE.niAngajatorCota);
+  }
+  const niAngajator = Math.max(salariu - RATE.niAngajatorPrag, 0) * RATE.niAngajatorCota;
+
+  const profitFirma = Math.max(profit - salariu - niAngajator, 0);
+  let ct;
+  if (profitFirma <= RATE.ctPragMic) ct = profitFirma * RATE.ctCotaMica;
+  else if (profitFirma >= RATE.ctPragMare) ct = profitFirma * RATE.ctCotaMare;
+  else ct = profitFirma * RATE.ctCotaMare - (RATE.ctPragMare - profitFirma) * RATE.ctFractieMarginala;
+  const dividende = profitFirma - ct;
+
+  // Impozitul personal: salariul folosește primul alocația și benzile, dividendele vin peste
+  const alocatie = alocatiePentru(salariu + dividende);
+  const salariuImpozabil = Math.max(salariu - alocatie, 0);
+  const divImpozabil = Math.max(dividende - Math.max(alocatie - salariu, 0), 0);
+  const impozitSalariu = impozitPeBenzi(0, salariuImpozabil, [RATE.cotaDeBaza, RATE.cotaSuperioara, RATE.cotaAditionala]);
+  const niAngajat =
+    Math.max(Math.min(salariu, RATE.niPragSuperior) - RATE.niPragInferior, 0) * 0.08 +
+    Math.max(salariu - RATE.niPragSuperior, 0) * 0.02;
+  const inceputDiv = salariuImpozabil + Math.min(RATE.alocatieDividende, divImpozabil);
+  const impozitDiv = impozitPeBenzi(inceputDiv, salariuImpozabil + divImpozabil, RATE.divCote);
+
+  const taxe = ct + niAngajator + niAngajat + impozitSalariu + impozitDiv;
+  return { salariu, dividende, ct, niAngajator, impozitDiv: impozitDiv + impozitSalariu + niAngajat, taxe, net: profit - taxe };
+}
+
+const ltd = document.getElementById("ltd-calc");
+if (ltd) {
+  const sectiune = ltd.closest("section");
+  const input = ltd.querySelector("[name=profit]");
+  const lire = new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP", maximumFractionDigits: 0 });
+  let ultim = null;
+
+  const actualizeaza = () => {
+    const profit = Math.max(parseFloat(input.value) || 0, 0);
+    const se = taxeSelfEmployed(profit);
+    const l = calculeazaLtd(profit);
+    const r = {
+      seImpozit: se.impozit, seNi: se.ni, seTaxe: se.impozit + se.ni, seNet: profit - se.impozit - se.ni,
+      ltdSalariu: l.salariu, ltdDividende: l.dividende, ltdCt: l.ct, ltdNiAngajator: l.niAngajator,
+      ltdImpozitDiv: l.impozitDiv, ltdTaxe: l.taxe, ltdNet: l.net,
+    };
+    r.diferenta = Math.abs(r.ltdNet - r.seNet);
+    const castigator = r.ltdNet > r.seNet ? "ltd" : "se";
+    ultim = profit ? { profit, castigator, diferenta: r.diferenta } : null;
+
+    sectiune.querySelectorAll("[data-ltd-out]").forEach((el) => { el.textContent = lire.format(r[el.dataset.ltdOut]); });
+    sectiune.querySelectorAll("[data-ltd-show]").forEach((el) => {
+      const cheie = el.dataset.ltdShow;
+      el.hidden = cheie === "gol" ? !!profit : cheie === "rezultat" ? !profit : cheie !== castigator;
+    });
+    sectiune.querySelectorAll(".compare__card").forEach((c) => {
+      c.classList.toggle("is-best", !!profit && c.dataset.varianta === castigator);
+    });
+  };
+  input.addEventListener("input", actualizeaza);
+  actualizeaza();
+
+  // Butonul de sub comparație completează formularul de contact
+  sectiune.querySelector(".ltd__cta").addEventListener("click", () => {
+    const contact = document.getElementById("contact-form");
+    if (!contact || !ultim) return;
+    const en = document.documentElement.lang === "en";
+    const optiune = [...contact.elements.tip.options].find((o) => /deschid|set up/.test(o.text));
+    if (optiune) contact.elements.tip.value = optiune.value;
+    if (!contact.elements.mesaj.value) {
+      const varianta = ultim.castigator === "ltd" ? (en ? "limited company" : "firmă Ltd") : "self-employed";
+      contact.elements.mesaj.value = en
+        ? `Self-employed or Ltd calculator: profit ${lire.format(ultim.profit)}, ${varianta} better by about ${lire.format(ultim.diferenta)} per year.`
+        : `Calculator self-employed sau Ltd: profit ${lire.format(ultim.profit)}, ${varianta} mai avantajos cu aproximativ ${lire.format(ultim.diferenta)} pe an.`;
+    }
+  });
+}
+
+// ========== Termene fiscale ==========
+const termene = document.querySelector(".termene");
+if (termene) {
+  const azi = new Date();
+  azi.setHours(0, 0, 0, 0);
+  const zi = 24 * 60 * 60 * 1000;
+  const ymd = (d) => `${d.getFullYear()}${String(d.getMonth() + 1).padStart(2, "0")}${String(d.getDate()).padStart(2, "0")}`;
+  let urmator = null;
+
+  termene.querySelectorAll("li[data-date]").forEach((li) => {
+    const [a, l, z] = li.dataset.date.split("-").map(Number);
+    const data = new Date(a, l - 1, z);
+    if (data < azi) li.classList.add("is-past");
+    else if (!urmator) { urmator = { li, data }; li.classList.add("is-next"); }
+
+    // Link „Adaugă în Google Calendar” pentru fiecare termen
+    const titlu = li.querySelector("h3").textContent;
+    const detalii = li.querySelector("p").textContent + "\n\n" + location.href.split("#")[0];
+    const link = document.createElement("a");
+    link.className = "termen__add";
+    link.target = "_blank";
+    link.rel = "noopener";
+    link.textContent = termene.dataset.calendarLabel;
+    link.href = "https://calendar.google.com/calendar/render?action=TEMPLATE" +
+      `&text=${encodeURIComponent(titlu)}&dates=${ymd(data)}/${ymd(new Date(data.getTime() + zi))}` +
+      `&details=${encodeURIComponent(detalii)}`;
+    li.querySelector("div").appendChild(link);
+  });
+
+  const box = document.querySelector("[data-termen-urmator]");
+  if (box && urmator) {
+    const n = Math.round((urmator.data - azi) / zi);
+    box.querySelector("[data-termen-titlu]").textContent = urmator.li.querySelector("h3").textContent;
+    box.querySelector("[data-termen-zile]").textContent =
+      n === 0 ? termene.dataset.azi : n === 1 ? termene.dataset.maine : termene.dataset.zile.replace("{n}", n);
+    box.hidden = false;
+  }
+}
+
+// ========== Lista de documente: printare doar a listei ==========
+document.querySelectorAll("[data-print-docs]").forEach((btn) =>
+  btn.addEventListener("click", () => {
+    document.body.classList.add("print-docs");
+    window.print();
+  })
+);
+window.addEventListener("afterprint", () => document.body.classList.remove("print-docs"));
