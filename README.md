@@ -5,12 +5,11 @@ Site de prezentare pentru o firmă de contabilitate din Marea Britanie, pentru c
 ## Ce conține
 
 - **Prezentare**: mesaj principal, butoane „Cere ofertă” și WhatsApp
-- **Servicii**: Self Assessment, CIS și recuperare taxe, înregistrare self-employed (UTR), firme Ltd, VAT / Making Tax Digital, salarii (Payroll)
-- **Prețuri**: 3 pachete în lire (self-employed/CIS, Ltd, Ltd cu VAT)
+- **Servicii**: Self Assessment, CIS și recuperare taxe, administrare firme Ltd, raportare VAT, raportare Making Tax Digital, reprezentare în investigații HMRC
+- **Prețuri**: raportare MTD £75, raportare VAT £75, administrare Ltd de la £100/lună, investigații HMRC de la £250, prima consultație gratuită
 - **Cum lucrăm**: 3 pași
 - **Despre noi**
-- **Recenzii**: de completat cu recenzii reale
-- **Întrebări frecvente**: UTR, termenul Self Assessment, CIS, self-employed sau Ltd, scrisori HMRC
+- **Întrebări frecvente**: UTR, termenul Self Assessment, CIS, Making Tax Digital, self-employed sau Ltd, scrisori HMRC
 - **Contact**: formular de ofertă, telefon, WhatsApp, e-mail, oraș, program
 
 ## Fișiere
@@ -24,17 +23,16 @@ Site de prezentare pentru o firmă de contabilitate din Marea Britanie, pentru c
 
 Dacă modifici un text, modifică-l în **ambele** fișiere, `index.html` și `en.html`.
 
-## Ce trebuie să înlocuiești
+## Date de contact
 
-Datele de contact de mai jos sunt **exemple**. Caută și înlocuiește-le în `index.html` **și** în `en.html`:
+Telefon/WhatsApp: +44 7344 883686 · E-mail: serviciidecontabilitateanglia@gmail.com · Oraș: London.
 
-- `+44 7000 000000` și `447000000000`: telefonul tău (al doilea format este pentru link-urile de apel și WhatsApp, fără `+` și fără spații)
-- `contact@exemplu.co.uk`: adresa ta de e-mail (și în `script.js`, la `EMAIL_FIRMA`)
-- `Londra` / `London`: orașul tău
-- `Company No. 00000000`: numărul firmei de la Companies House
-- Programul de lucru, prețurile și recenziile
+Dacă le schimbi, schimbă-le în `index.html` **și** în `en.html` (telefonul apare și în formatul `447344883686`, pentru link-urile de apel și WhatsApp). E-mailul apare și în `script.js`, la `EMAIL_FIRMA`.
 
-Verifică și afirmațiile, și păstrează-le doar pe cele adevărate pentru firma ta: „prima consultație £0”, „răspuns în 24h”, „consultanță în română și engleză”.
+## De verificat
+
+- „Răspuns în 24h” și programul „Luni–Vineri, 09:00–18:00”: păstrează-le doar dacă sunt adevărate.
+- Recenzii: adaugă doar recenzii reale, primite de la clienți (de exemplu de pe Google). În Marea Britanie, recenziile false sunt interzise prin lege.
 
 Poți edita fișierele direct pe GitHub: deschizi fișierul, apeși pe creionul ✏️, modifici textul și apeși „Commit changes”.
 
@@ -49,4 +47,4 @@ Poți edita fișierele direct pe GitHub: deschizi fișierul, apeși pe creionul 
 
 > Notă: pe contul GitHub gratuit, GitHub Pages funcționează doar pentru depozite **publice**. Depozitul acesta este privat, așa că trebuie fie să-l faci public (Settings, apoi Danger Zone, apoi Change visibility), fie să ai un plan GitHub Pro.
 
-Poți folosi și un domeniu propriu (de exemplu `contabilitate-anglia.co.uk`), din aceeași pagină **Settings → Pages → Custom domain**.
+Poți folosi și un domeniu propriu (de exemplu `serviciicontabilitateanglia.co.uk`), din aceeași pagină **Settings → Pages → Custom domain**.

@@ -1,5 +1,5 @@
 // Adresa de e-mail la care ajung cererile de ofertă. SCHIMB-O cu adresa ta.
-const EMAIL_FIRMA = "contact@exemplu.co.uk";
+const EMAIL_FIRMA = "serviciidecontabilitateanglia@gmail.com";
 
 // Textele e-mailului, în limba paginii (index.html = română, en.html = engleză)
 const TEXTE = {

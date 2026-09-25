@@ -131,6 +131,7 @@ a { color: var(--primary); }
 
 .grid { display: grid; gap: 24px; }
 .grid--3 { grid-template-columns: repeat(3, 1fr); }
+.grid--4 { grid-template-columns: repeat(4, 1fr); }
 
 .card {
   background: #fff;
@@ -235,7 +236,8 @@ a { color: var(--primary); }
 .contact__info p { color: #d6e4f2; }
 .contact__list { list-style: none; padding: 0; margin: 24px 0 0; display: grid; gap: 14px; }
 .contact__list li { display: flex; gap: 12px; align-items: center; }
-.contact__list a { color: #fff; }
+.contact__list a { color: #fff; overflow-wrap: anywhere; }
+.contact__info { min-width: 0; }
 
 .form {
   background: #fff;
@@ -267,9 +269,13 @@ a { color: var(--primary); }
 .footer strong { color: #fff; }
 
 /* ========== Telefon și tabletă ========== */
+@media (max-width: 1100px) {
+  .grid--4 { grid-template-columns: repeat(2, 1fr); row-gap: 32px; }
+}
+
 @media (max-width: 900px) {
   .hero__inner, .about, .contact__inner { grid-template-columns: 1fr; }
-  .grid--3, .steps { grid-template-columns: 1fr; }
+  .grid--3, .grid--4, .steps { grid-template-columns: 1fr; }
   .hero, .section { padding: 56px 0; }
   .pricing { gap: 32px; }
 
