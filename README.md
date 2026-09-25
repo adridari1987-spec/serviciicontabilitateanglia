@@ -31,7 +31,7 @@ Site de prezentare pentru o firmă de contabilitate din Marea Britanie, pentru c
 | `confidentialitate.html`, `privacy.html` | Politica de confidențialitate (RO / EN) |
 | `termene-fiscale.ics`, `tax-deadlines.ics` | Termenele fiscale ca fișiere de calendar (RO / EN) |
 | `favicon.svg`, `favicon-32.png`, `apple-touch-icon.png` | Iconița site-ului |
-| `og-image.png`, `og-image-en.png` | Imaginea care apare când trimiți linkul pe WhatsApp sau Facebook |
+| `og-image.jpg`, `og-image-en.jpg` | Imaginea care apare când trimiți linkul pe WhatsApp sau Facebook |
 | `sitemap.xml` | Lista paginilor, pentru Google Search Console |
 | `google0ebb1c82567fd536.html` | Verificarea Google Search Console. **Nu-l șterge**, altfel se pierde verificarea. |
 

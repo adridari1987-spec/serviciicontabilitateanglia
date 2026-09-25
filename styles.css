@@ -1,8 +1,20 @@
+/* ========== Fontul Inter, găzduit pe site (licență: fonts/LICENSE.txt) ========== */
+@font-face {
+  font-family: "Inter"; font-style: normal; font-weight: 400 700; font-display: swap;
+  src: url("fonts/inter-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Inter"; font-style: normal; font-weight: 400 700; font-display: swap;
+  src: url("fonts/inter-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 /* ========== Culori și setări generale ========== */
 :root {
   --primary: #0f4c81;
   --primary-dark: #0b3a63;
-  --accent: #1fa67a;
+  --accent: #117a57; /* verde închis: contrast bun pentru text mic */
   --text: #1c2733;
   --muted: #5b6b7c;
   --bg: #ffffff;
@@ -513,3 +525,10 @@ a { color: var(--primary); }
 .article__alert { background: #fff7e6; border-left: 4px solid #e0a100; border-radius: 10px; padding: 16px 18px; margin: 0 0 1.5em; color: #4a3b12; }
 .banner .banner__price { color: var(--primary); }
 .card--link .card__link { color: var(--primary); }
+
+/* ========== Calculator Ltd: alegerea anului fiscal ========== */
+.an-fiscal { border: 0; margin: 0 0 4px; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.an-fiscal legend { font-weight: 500; font-size: 0.92rem; margin-bottom: 6px; padding: 0; width: 100%; }
+.calc .an-fiscal label { display: flex; align-items: center; gap: 6px; border: 1px solid var(--border); border-radius: 999px; padding: 6px 14px; cursor: pointer; font-size: 0.88rem; }
+.an-fiscal label:has(input:checked) { border-color: var(--primary); background: #eaf2fa; color: var(--primary); font-weight: 600; }
+.an-fiscal input { accent-color: var(--primary); margin: 0; }
