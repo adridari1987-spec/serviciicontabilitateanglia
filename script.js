@@ -1,5 +1,20 @@
 // Adresa de e-mail la care ajung cererile de ofertă. SCHIMB-O cu adresa ta.
-const EMAIL_FIRMA = "contact@exemplu.ro";
+const EMAIL_FIRMA = "serviciidecontabilitateanglia@gmail.com";
+
+// Textele e-mailului, în limba paginii (index.html = română, en.html = engleză)
+const TEXTE = {
+  ro: {
+    subiect: "Cerere ofertă contabilitate",
+    nume: "Nume", telefon: "Telefon", email: "E-mail",
+    tip: "Situația", angajati: "Număr de angajați", mesaj: "Mesaj",
+  },
+  en: {
+    subiect: "Accounting quote request",
+    nume: "Name", telefon: "Phone", email: "E-mail",
+    tip: "Situation", angajati: "Number of employees", mesaj: "Message",
+  },
+};
+const t = TEXTE[document.documentElement.lang] || TEXTE.ro;
 
 // Meniul pentru telefon
 const toggle = document.querySelector(".nav-toggle");
@@ -22,15 +37,15 @@ document.getElementById("contact-form").addEventListener("submit", (e) => {
   e.preventDefault();
   const date = new FormData(e.target);
 
-  const subiect = `Cerere ofertă contabilitate - ${date.get("nume")}`;
+  const subiect = `${t.subiect} - ${date.get("nume")}`;
   const corp = [
-    `Nume: ${date.get("nume")}`,
-    `Telefon: ${date.get("telefon")}`,
-    `E-mail: ${date.get("email")}`,
-    `Tipul firmei: ${date.get("tip")}`,
-    `Număr de angajați: ${date.get("angajati")}`,
+    `${t.nume}: ${date.get("nume")}`,
+    `${t.telefon}: ${date.get("telefon")}`,
+    `${t.email}: ${date.get("email")}`,
+    `${t.tip}: ${date.get("tip")}`,
+    `${t.angajati}: ${date.get("angajati")}`,
     "",
-    `Mesaj: ${date.get("mesaj")}`,
+    `${t.mesaj}: ${date.get("mesaj")}`,
   ].join("\n");
 
   window.location.href =

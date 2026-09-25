@@ -1,36 +1,38 @@
-# Website: servicii de contabilitate
+# Servicii De Contabilitate Anglia: website
 
-Site de prezentare pentru o firmă de contabilitate, în limba română. Funcționează pe calculator, tabletă și telefon.
+Site de prezentare pentru o firmă de contabilitate din Marea Britanie, pentru clienți români. Are două limbi, română și engleză, cu un buton **RO / EN** în partea de sus. Funcționează pe calculator, tabletă și telefon.
 
 ## Ce conține
 
-- **Prezentare**: mesaj principal, butoane „Cere ofertă” și „Sună-ne”, cifre despre firmă
-- **Servicii**: contabilitate, declarații fiscale, salarizare, bilanț, înființare firme, consultanță
-- **Prețuri**: 3 pachete lunare (PFA, SRL fără TVA, SRL cu TVA)
+- **Prezentare**: mesaj principal, butoane „Cere ofertă” și WhatsApp
+- **Servicii**: Self Assessment, CIS și recuperare taxe, administrare firme Ltd, raportare VAT, raportare Making Tax Digital, reprezentare în investigații HMRC
+- **Prețuri**: raportare MTD £75, raportare VAT £75, administrare Ltd de la £100/lună, investigații HMRC de la £250, prima consultație gratuită
 - **Cum lucrăm**: 3 pași
 - **Despre noi**
-- **Recenzii**: de completat cu recenzii reale
-- **Întrebări frecvente**
-- **Contact**: formular de ofertă, telefon, WhatsApp, e-mail, adresă, program
+- **Întrebări frecvente**: UTR, termenul Self Assessment, CIS, Making Tax Digital, self-employed sau Ltd, scrisori HMRC
+- **Contact**: formular de ofertă, telefon, WhatsApp, e-mail, oraș, program
 
 ## Fișiere
 
 | Fișier | Ce este |
 |---|---|
-| `index.html` | Textele și structura site-ului |
-| `styles.css` | Culorile și aspectul |
+| `index.html` | Pagina în **română** (textele și structura) |
+| `en.html` | Pagina în **engleză** |
+| `styles.css` | Culorile și aspectul (comun pentru ambele limbi) |
 | `script.js` | Meniul pe telefon și formularul de contact |
 
-## Ce trebuie să înlocuiești
+Dacă modifici un text, modifică-l în **ambele** fișiere, `index.html` și `en.html`.
 
-Datele din site sunt **exemple**. Caută și înlocuiește în `index.html`:
+## Date de contact
 
-- `Cifra Contabilitate`: numele firmei tale
-- `0700 000 000` și `40700000000`: telefonul tău (al doilea este pentru link-urile de apel și WhatsApp)
-- `contact@exemplu.ro`: adresa ta de e-mail (și în `script.js`, la `EMAIL_FIRMA`)
-- `Str. Exemplu nr. 1, București`: adresa biroului
-- CUI-ul și numărul de la Registrul Comerțului din subsol
-- Cifrele (12+ ani, 150+ clienți), prețurile și recenziile
+Telefon/WhatsApp: +44 7344 883686 · E-mail: serviciidecontabilitateanglia@gmail.com · Oraș: London.
+
+Dacă le schimbi, schimbă-le în `index.html` **și** în `en.html` (telefonul apare și în formatul `447344883686`, pentru link-urile de apel și WhatsApp). E-mailul apare și în `script.js`, la `EMAIL_FIRMA`.
+
+## De verificat
+
+- „Răspuns în 24h” și programul „Luni–Vineri, 09:00–18:00”: păstrează-le doar dacă sunt adevărate.
+- Recenzii: adaugă doar recenzii reale, primite de la clienți (de exemplu de pe Google). În Marea Britanie, recenziile false sunt interzise prin lege.
 
 Poți edita fișierele direct pe GitHub: deschizi fișierul, apeși pe creionul ✏️, modifici textul și apeși „Commit changes”.
 
@@ -41,8 +43,8 @@ Poți edita fișierele direct pe GitHub: deschizi fișierul, apeși pe creionul 
 **Online, gratuit, cu GitHub Pages:**
 1. Pe GitHub, mergi la **Settings**, apoi **Pages**.
 2. La „Branch” alege `main` și folderul `/ (root)`, apoi apasă **Save**.
-3. După 1–2 minute site-ul apare la `https://adridari1987-spec.github.io/test/`.
+3. După 1–2 minute site-ul apare la `https://adridari1987-spec.github.io/serviciicontabilitateanglia/`.
 
 > Notă: pe contul GitHub gratuit, GitHub Pages funcționează doar pentru depozite **publice**. Depozitul acesta este privat, așa că trebuie fie să-l faci public (Settings, apoi Danger Zone, apoi Change visibility), fie să ai un plan GitHub Pro.
 
-Poți folosi și un domeniu propriu (de exemplu `firmata.ro`), din aceeași pagină **Settings → Pages → Custom domain**.
+Poți folosi și un domeniu propriu (de exemplu `serviciicontabilitateanglia.co.uk`), din aceeași pagină **Settings → Pages → Custom domain**.
