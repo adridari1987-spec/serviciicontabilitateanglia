@@ -8,12 +8,12 @@ Site de prezentare pentru o firmă de contabilitate din Marea Britanie, pentru c
 - **Servicii**: Self Assessment, CIS și recuperare taxe, administrare firme Ltd, raportare VAT, raportare Making Tax Digital, reprezentare în investigații HMRC
 - **Documente pentru ipotecă și refinanțare** (de la £200): banner sub servicii, cu nota că nu oferim consultanță de credit (activitate reglementată FCA)
 - **Calculator CIS**: estimează pe loc rambursarea CIS din venitul brut, suma reținută și cheltuieli (unelte, echipament de protecție, mile, transport, telefon, altele). Butonul de sub rezultat completează formularul de contact cu estimarea.
-- **Calculator Self-employed sau Ltd**: compară cât îți rămâne în mână ca self-employed și cu o firmă Ltd (salariu de £12.570 + dividende)
+- **Calculator Self-employed sau Ltd**: compară cât îți rămâne în mână ca self-employed și cu o firmă Ltd (salariu de £12.570 + dividende), pentru anul fiscal 2025/26 sau 2026/27
 - **Prețuri**: raportare MTD £75, raportare VAT £75, administrare Ltd de la £100/lună, investigații HMRC de la £250, prima consultație gratuită
 - **Cum lucrăm**: 3 pași
 - **Termene fiscale**: următorul termen evidențiat, link „+ Google Calendar” la fiecare termen și fișier de calendar cu toate termenele
 - **Documente necesare**: liste pentru CIS/self-employed, Ltd și firmă nouă, cu buton de printare sau salvare PDF
-- **Ghiduri** (în română): numărul UTR, cheltuieli deductibile pe CIS, scrisori de la HMRC, ipotecă și refinanțare ca self-employed
+- **Ghiduri** (în română): numărul UTR, cheltuieli deductibile pe CIS, scrisori de la HMRC, ipotecă și refinanțare, self-employed sau Ltd, Making Tax Digital, taxe pe chirii
 - **Despre noi**
 - **Întrebări frecvente**: UTR, termenul Self Assessment, CIS, Making Tax Digital, self-employed sau Ltd, scrisori HMRC
 - **Contact**: formular de ofertă, telefon, WhatsApp, e-mail, oraș, program
@@ -26,7 +26,8 @@ Site de prezentare pentru o firmă de contabilitate din Marea Britanie, pentru c
 | `en.html` | Pagina în **engleză** |
 | `styles.css` | Culorile și aspectul (comun pentru ambele limbi) |
 | `script.js` | Meniul pe telefon, formularul de contact, calculatoarele, termenele și printarea |
-| `ghid-*.html` | Cele 4 ghiduri în română |
+| `ghid-*.html` | Cele 7 ghiduri în română |
+| `fonts/` | Fontul Inter, găzduit pe site (licență SIL OFL în `fonts/LICENSE.txt`) |
 | `404.html` | Pagina afișată când o adresă nu există |
 | `confidentialitate.html`, `privacy.html` | Politica de confidențialitate (RO / EN) |
 | `termene-fiscale.ics`, `tax-deadlines.ics` | Termenele fiscale ca fișiere de calendar (RO / EN) |
@@ -59,7 +60,7 @@ Dacă le schimbi, schimbă-le în `index.html` **și** în `en.html` (telefonul 
 Calculatorul folosește ratele pentru anul fiscal **2025/26** (Anglia, Țara Galilor și Irlanda de Nord): alocația personală £12.570, impozit 20% / 40% / 45%, Class 4 NI 6% și 2%, mile 45p / 25p.
 
 La fiecare an fiscal nou:
-1. **Calculatoarele**: schimbă valorile din blocul `RATE` din `script.js`, apoi anul fiscal din textele calculatoarelor în `index.html` și `en.html` (caută `2025/26`).
+1. **Calculatoarele**: schimbă valorile din blocul `RATE` din `script.js` (iar pentru calculatorul Ltd adaugă noul an în `ANI_FISCALI`, cu cotele pentru dividende, și butonul lui în `index.html` și `en.html`), apoi anul fiscal din textele calculatoarelor în `index.html` și `en.html` (caută `2025/26`).
 2. **Termenele**: adaugă noile date în secțiunea „Termene fiscale” din `index.html` și `en.html`. Pe site, termenele trecute apar estompate automat. Regenerează și fișierele `.ics`.
 3. **Ghidurile**: verifică sumele (mile, lucru de acasă, amenzi) și data „Actualizat”.
 
