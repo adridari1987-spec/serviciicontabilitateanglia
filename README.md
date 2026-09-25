@@ -1,36 +1,40 @@
-# Website: servicii de contabilitate
+# Servicii De Contabilitate Anglia: website
 
-Site de prezentare pentru o firmă de contabilitate, în limba română. Funcționează pe calculator, tabletă și telefon.
+Site de prezentare pentru o firmă de contabilitate din Marea Britanie, pentru clienți români. Are două limbi, română și engleză, cu un buton **RO / EN** în partea de sus. Funcționează pe calculator, tabletă și telefon.
 
 ## Ce conține
 
-- **Prezentare**: mesaj principal, butoane „Cere ofertă” și „Sună-ne”, cifre despre firmă
-- **Servicii**: contabilitate, declarații fiscale, salarizare, bilanț, înființare firme, consultanță
-- **Prețuri**: 3 pachete lunare (PFA, SRL fără TVA, SRL cu TVA)
+- **Prezentare**: mesaj principal, butoane „Cere ofertă” și WhatsApp
+- **Servicii**: Self Assessment, CIS și recuperare taxe, înregistrare self-employed (UTR), firme Ltd, VAT / Making Tax Digital, salarii (Payroll)
+- **Prețuri**: 3 pachete în lire (self-employed/CIS, Ltd, Ltd cu VAT)
 - **Cum lucrăm**: 3 pași
 - **Despre noi**
 - **Recenzii**: de completat cu recenzii reale
-- **Întrebări frecvente**
-- **Contact**: formular de ofertă, telefon, WhatsApp, e-mail, adresă, program
+- **Întrebări frecvente**: UTR, termenul Self Assessment, CIS, self-employed sau Ltd, scrisori HMRC
+- **Contact**: formular de ofertă, telefon, WhatsApp, e-mail, oraș, program
 
 ## Fișiere
 
 | Fișier | Ce este |
 |---|---|
-| `index.html` | Textele și structura site-ului |
-| `styles.css` | Culorile și aspectul |
+| `index.html` | Pagina în **română** (textele și structura) |
+| `en.html` | Pagina în **engleză** |
+| `styles.css` | Culorile și aspectul (comun pentru ambele limbi) |
 | `script.js` | Meniul pe telefon și formularul de contact |
+
+Dacă modifici un text, modifică-l în **ambele** fișiere, `index.html` și `en.html`.
 
 ## Ce trebuie să înlocuiești
 
-Datele din site sunt **exemple**. Caută și înlocuiește în `index.html`:
+Datele de contact de mai jos sunt **exemple**. Caută și înlocuiește-le în `index.html` **și** în `en.html`:
 
-- `Cifra Contabilitate`: numele firmei tale
-- `0700 000 000` și `40700000000`: telefonul tău (al doilea este pentru link-urile de apel și WhatsApp)
-- `contact@exemplu.ro`: adresa ta de e-mail (și în `script.js`, la `EMAIL_FIRMA`)
-- `Str. Exemplu nr. 1, București`: adresa biroului
-- CUI-ul și numărul de la Registrul Comerțului din subsol
-- Cifrele (12+ ani, 150+ clienți), prețurile și recenziile
+- `+44 7000 000000` și `447000000000`: telefonul tău (al doilea format este pentru link-urile de apel și WhatsApp, fără `+` și fără spații)
+- `contact@exemplu.co.uk`: adresa ta de e-mail (și în `script.js`, la `EMAIL_FIRMA`)
+- `Londra` / `London`: orașul tău
+- `Company No. 00000000`: numărul firmei de la Companies House
+- Programul de lucru, prețurile și recenziile
+
+Verifică și afirmațiile, și păstrează-le doar pe cele adevărate pentru firma ta: „prima consultație £0”, „răspuns în 24h”, „consultanță în română și engleză”.
 
 Poți edita fișierele direct pe GitHub: deschizi fișierul, apeși pe creionul ✏️, modifici textul și apeși „Commit changes”.
 
@@ -45,4 +49,4 @@ Poți edita fișierele direct pe GitHub: deschizi fișierul, apeși pe creionul 
 
 > Notă: pe contul GitHub gratuit, GitHub Pages funcționează doar pentru depozite **publice**. Depozitul acesta este privat, așa că trebuie fie să-l faci public (Settings, apoi Danger Zone, apoi Change visibility), fie să ai un plan GitHub Pro.
 
-Poți folosi și un domeniu propriu (de exemplu `firmata.ro`), din aceeași pagină **Settings → Pages → Custom domain**.
+Poți folosi și un domeniu propriu (de exemplu `contabilitate-anglia.co.uk`), din aceeași pagină **Settings → Pages → Custom domain**.

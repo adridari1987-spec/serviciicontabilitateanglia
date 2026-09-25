@@ -90,6 +90,13 @@ a { color: var(--primary); }
 .nav a:hover { color: var(--primary); }
 .nav a.btn { color: #fff; }
 
+.header__right { display: flex; align-items: center; gap: 22px; }
+
+.lang { display: flex; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; font-size: 0.85rem; font-weight: 600; }
+.lang a { padding: 6px 10px; text-decoration: none; color: var(--muted); }
+.lang a:hover { color: var(--primary); }
+.lang a.is-active { background: var(--primary); color: #fff; }
+
 .nav-toggle { display: none; background: none; border: 0; cursor: pointer; padding: 8px; }
 .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--text); margin: 5px 0; }
 
@@ -266,6 +273,8 @@ a { color: var(--primary); }
   .hero, .section { padding: 56px 0; }
   .pricing { gap: 32px; }
 
+  .header__right { gap: 10px; }
+  .logo { font-size: 1rem; }
   .nav-toggle { display: block; }
   .nav {
     display: none;
@@ -284,6 +293,8 @@ a { color: var(--primary); }
 }
 
 @media (max-width: 520px) {
+  .logo__mark { width: 32px; height: 32px; flex-shrink: 0; }
+  .logo__text { font-size: 0.88rem; line-height: 1.25; }
   .form__row { grid-template-columns: 1fr; }
   .hero__card { padding: 16px; gap: 10px; }
   .stat { padding: 14px 8px; }
