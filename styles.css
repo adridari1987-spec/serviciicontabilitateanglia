@@ -505,7 +505,7 @@ a { color: var(--primary); }
 }
 
 /* ========== Ghiduri pe 4 coloane ========== */
-@media (min-width: 1101px) { #ghiduri .grid--4 .card { padding: 24px; } }
+@media (min-width: 1101px) { #ghiduri .grid .card, #guides .grid .card { padding: 24px; } }
 
 /* ========== Formular: stare trimitere și capcană pentru roboți ========== */
 .form__trap { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
