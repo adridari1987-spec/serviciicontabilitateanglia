@@ -572,3 +572,93 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
   .footer { padding-bottom: 28px; }
 }
 @media print { .mobile-bar, .sezon, .skip-link { display: none !important; } }
+
+/* ========== Iconițe desenate (în locul emoji) ========== */
+.icon { width: 24px; height: 24px; display: block; }
+.card__icon { width: 52px; height: 52px; border-radius: 14px; background: #eaf2fa; color: var(--primary); display: grid; place-items: center; font-size: 0; margin-bottom: 14px; }
+.card__icon .icon { width: 28px; height: 28px; }
+.banner__icon { width: 64px; height: 64px; border-radius: 16px; background: #fff; color: var(--primary); display: grid; place-items: center; box-shadow: var(--shadow); }
+.banner__icon .icon { width: 34px; height: 34px; }
+.contact__list span { color: #8fe3c4; flex-shrink: 0; }
+.contact__list .icon { width: 22px; height: 22px; }
+.mobile-bar span .icon { width: 22px; height: 22px; margin: 0 auto; }
+
+/* ========== Buton WhatsApp (share rezultat calculator) ========== */
+.btn--wa { background: #0e7a3f; border-color: #0e7a3f; color: #fff; }
+.btn--wa:hover { background: #0b6534; border-color: #0b6534; }
+.calc__wa { margin-top: 10px; }
+.verdict .btn--wa { border-color: #8fe3c4; }
+
+/* ========== Bara cu rezultatul calculatorului CIS (telefon) ========== */
+.calc-sticky { display: none; }
+@media (max-width: 900px) {
+  .calc-sticky:not([hidden]) {
+    display: flex; align-items: center; gap: 10px; width: calc(100% - 24px);
+    position: fixed; left: 12px; bottom: 76px; z-index: 29;
+    background: var(--primary); color: #fff; border: 0; border-radius: 12px; padding: 12px 14px;
+    font: inherit; text-align: left; cursor: pointer; box-shadow: 0 8px 24px rgba(10, 37, 64, 0.3);
+  }
+  .calc-sticky__label { font-size: 0.85rem; color: #d6e4f2; }
+  .calc-sticky__amount { font-size: 1.3rem; }
+  .calc-sticky[data-stare="rambursare"] .calc-sticky__amount { color: #8fe3c4; }
+  .calc-sticky[data-stare="plata"] .calc-sticky__amount { color: #ffd28a; }
+  .calc-sticky__more { margin-left: auto; font-size: 0.85rem; font-weight: 600; white-space: nowrap; }
+}
+@media (min-width: 761px) and (max-width: 900px) { .calc-sticky:not([hidden]) { bottom: 16px; } }
+
+/* ========== Prețuri: „Ce include” pe telefon ========== */
+.price-card__more { display: none; }
+@media (max-width: 600px) {
+  .price-card { padding: 22px 20px; }
+  .price { margin-bottom: 10px; font-size: 2rem; }
+  .price-card ul { display: none; margin-bottom: 16px; }
+  .price-card ul.is-open { display: block; }
+  .price-card__more {
+    display: block; background: none; border: 0; padding: 10px 0; min-height: 44px; margin: 0 0 8px;
+    font: inherit; font-weight: 600; color: var(--primary); cursor: pointer; text-align: left;
+  }
+  .pricing { gap: 28px; }
+}
+
+/* ========== Bara de sus se ascunde la derulare (telefon) ========== */
+.header { transition: transform 0.25s ease; }
+.header--hidden { transform: translateY(-100%); }
+
+/* ========== Zone de atingere de minimum 44px ========== */
+.lang a { padding: 12px 12px; }
+.nav-toggle { min-width: 44px; min-height: 44px; }
+.card__link, .banner__link { display: inline-block; padding: 10px 0; margin: -4px 0; }
+.contact__list a { display: inline-block; padding: 9px 0; }
+.calc .an-fiscal label { padding: 11px 16px; }
+.logo { padding: 4px 0; }
+
+/* ========== Telefon: text de minimum 14px și carduri compacte ========== */
+@media (max-width: 600px) {
+  .eyebrow, .calc__label, .calc small, .calc__note, .calc__note-dark, .compare__label, .banner__note,
+  .form__privacy, .form__hint, .lang a, .price span, .price small, .article__meta, .note { font-size: 0.875rem; }
+  #servicii .card, #services .card, #ghiduri .card, #guides .card {
+    display: grid; grid-template-columns: 44px 1fr; column-gap: 14px; padding: 18px;
+  }
+  #servicii .card__icon, #services .card__icon, #ghiduri .card__icon, #guides .card__icon {
+    width: 44px; height: 44px; margin: 0; grid-row: span 3;
+  }
+  #servicii .card h3, #services .card h3, #ghiduri .card h3, #guides .card h3 { margin-bottom: 4px; }
+  #servicii .card p, #services .card p, #ghiduri .card p, #guides .card p { font-size: 0.93rem; }
+  .grid { gap: 14px; }
+}
+
+/* ========== Ghiduri: link înapoi și ghiduri similare ========== */
+.breadcrumb { margin: 0 0 18px; font-size: 0.9rem; }
+.breadcrumb a { text-decoration: none; font-weight: 600; display: inline-block; padding: 10px 0; }
+.related { margin-top: 40px; border-top: 1px solid var(--border); padding-top: 24px; }
+.related h2 { margin-top: 0; font-size: 1.2rem; }
+.related ul { list-style: none; padding: 0; display: grid; gap: 4px; }
+.related li a { display: block; padding: 12px 14px; border: 1px solid var(--border); border-radius: 10px; text-decoration: none; font-weight: 600; }
+.related li a:hover { border-color: var(--primary); background: #eaf2fa; }
+
+/* ========== Mesajul de după trimiterea formularului ========== */
+.form__status a { color: inherit; font-weight: 700; }
+.btn--small { min-height: 44px; }
+.card__link, .banner__link { padding: 11px 0; }
+@media (max-width: 760px) { .mobile-bar a { font-size: 0.875rem; } }
+@media (max-width: 600px) { .banner__price span, .tag { font-size: 0.875rem; } }
