@@ -417,7 +417,7 @@ a { color: var(--primary); }
 .termene li.is-next { border: 2px solid var(--accent); }
 .termene li.is-past { opacity: 0.5; }
 .termene li.is-past .termen__add { display: none; }
-.termen__add { display: inline-block; margin-top: 8px; font-size: 0.85rem; font-weight: 600; text-decoration: none; }
+.termen__add { display: inline-block; margin-top: 0; padding: 8px 0; font-size: 0.85rem; font-weight: 600; text-decoration: none; }
 .termen__add:hover { text-decoration: underline; }
 .termene__actions { text-align: center; margin-top: 28px; }
 
@@ -681,3 +681,6 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
 
 /* Îndemn la recenzie Google, în „Despre noi” */
 .about__review { margin: 20px 0 12px; font-weight: 500; }
+
+/* Linkurile din subsol: zonă de atingere mai mare pe telefon */
+@media (max-width: 760px) { .footer a { display: inline-block; padding: 6px 0; } }

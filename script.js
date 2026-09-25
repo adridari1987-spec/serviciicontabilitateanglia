@@ -1,3 +1,5 @@
+// Scris fără `?.` și `??`, ca să meargă și pe iPhone-urile rămase pe iOS 12 (iPhone 6, 5s).
+
 // Adresa de e-mail la care ajung cererile de ofertă. SCHIMB-O cu adresa ta.
 const EMAIL_FIRMA = "serviciidecontabilitateanglia@gmail.com";
 
@@ -44,7 +46,9 @@ const TEXTE = {
 const t = TEXTE[document.documentElement.lang] || TEXTE.ro;
 
 // Numără o acțiune în GoatCounter (apare la „Events” în panoul de statistici)
-const numara = (nume) => window.goatcounter?.count?.({ path: nume, title: nume, event: true });
+const numara = (nume) => {
+  if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: nume, title: nume, event: true });
+};
 
 // Click-uri pe WhatsApp, telefon, Calendly și calendar, oriunde în pagină
 document.addEventListener("click", (e) => {
@@ -93,19 +97,19 @@ window.addEventListener("scroll", () => {
 // Formularul de contact (există doar pe paginile principale, nu și pe ghiduri).
 // Cu cheie Web3Forms trimite mesajul direct; altfel deschide aplicația de e-mail.
 const formular = document.getElementById("contact-form");
-const hint = formular?.querySelector(".form__hint");
-if (WEB3FORMS_KEY && hint?.dataset.hintDirect) hint.textContent = hint.dataset.hintDirect;
+const hint = formular && formular.querySelector(".form__hint");
+if (WEB3FORMS_KEY && hint && hint.dataset.hintDirect) hint.textContent = hint.dataset.hintDirect;
 
-const campAngajati = formular?.querySelector(".form__angajati");
+const campAngajati = formular && formular.querySelector(".form__angajati");
 const actualizeazaAngajati = () => {
   if (!campAngajati) return;
   campAngajati.hidden = !/Ltd|Limited/.test(formular.elements.tip.value);
   campAngajati.parentElement.classList.toggle("form__row--singur", campAngajati.hidden);
 };
-formular?.elements.tip.addEventListener("change", actualizeazaAngajati);
+if (formular) formular.elements.tip.addEventListener("change", actualizeazaAngajati);
 actualizeazaAngajati();
 
-formular?.addEventListener("submit", async (e) => {
+if (formular) formular.addEventListener("submit", async (e) => {
   e.preventDefault();
   const date = new FormData(e.target);
   if (date.get("botcheck")) return; // câmp ascuns: doar roboții îl bifează
@@ -165,7 +169,7 @@ formular?.addEventListener("submit", async (e) => {
 // Butoanele cu data-tip (de exemplu „Cere ofertă” la ipotecă) aleg situația în formular
 document.querySelectorAll("[data-tip]").forEach((btn) =>
   btn.addEventListener("click", () => {
-    const tip = formular?.elements.tip;
+    const tip = formular && formular.elements.tip;
     const optiune = tip && [...tip.options].find((o) => o.text === btn.dataset.tip);
     if (optiune) tip.value = optiune.value;
     actualizeazaAngajati();
@@ -412,7 +416,8 @@ if (ltd) {
 
   const actualizeaza = () => {
     const profit = Math.max(parseFloat(input.value) || 0, 0);
-    const an = ltd.querySelector("[name=an]:checked")?.value || "2026/27";
+    const ales = ltd.querySelector("[name=an]:checked");
+    const an = (ales && ales.value) || "2026/27";
     const se = taxeSelfEmployed(profit);
     const l = calculeazaLtd(profit, an);
     const r = {
