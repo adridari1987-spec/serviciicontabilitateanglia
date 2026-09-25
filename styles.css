@@ -1,0 +1,292 @@
+/* ========== Culori și setări generale ========== */
+:root {
+  --primary: #0f4c81;
+  --primary-dark: #0b3a63;
+  --accent: #1fa67a;
+  --text: #1c2733;
+  --muted: #5b6b7c;
+  --bg: #ffffff;
+  --bg-alt: #f3f7fb;
+  --border: #dde5ee;
+  --radius: 14px;
+  --shadow: 0 10px 30px rgba(15, 76, 129, 0.08);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+}
+
+h1, h2, h3 { line-height: 1.2; margin: 0 0 0.6em; }
+h1 { font-size: clamp(2rem, 4.5vw, 3.1rem); }
+h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+h3 { font-size: 1.15rem; }
+p { margin: 0 0 1em; }
+a { color: var(--primary); }
+
+.container { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+.container--narrow { max-width: 780px; }
+
+.eyebrow {
+  color: var(--accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+  margin-bottom: 0.6em;
+}
+
+/* ========== Butoane ========== */
+.btn {
+  display: inline-block;
+  background: var(--primary);
+  color: #fff;
+  padding: 0.85em 1.5em;
+  border-radius: 10px;
+  border: 2px solid var(--primary);
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.btn:hover { background: var(--primary-dark); border-color: var(--primary-dark); transform: translateY(-1px); }
+.btn--ghost { background: transparent; color: var(--primary); }
+.btn--ghost:hover { background: var(--primary); color: #fff; }
+.btn--small { padding: 0.55em 1.1em; font-size: 0.9rem; }
+.btn--block { display: block; width: 100%; }
+
+/* ========== Antet ========== */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+.header__inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+
+.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 1.15rem; }
+.logo__mark {
+  display: grid; place-items: center;
+  width: 38px; height: 38px;
+  border-radius: 10px;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 700;
+}
+
+.nav { display: flex; align-items: center; gap: 28px; }
+.nav a { text-decoration: none; color: var(--text); font-weight: 500; }
+.nav a:hover { color: var(--primary); }
+.nav a.btn { color: #fff; }
+
+.nav-toggle { display: none; background: none; border: 0; cursor: pointer; padding: 8px; }
+.nav-toggle span { display: block; width: 24px; height: 2px; background: var(--text); margin: 5px 0; }
+
+/* ========== Prezentare (hero) ========== */
+.hero {
+  background: linear-gradient(135deg, #eaf2fa 0%, #ffffff 60%);
+  padding: 80px 0;
+}
+.hero__inner { display: grid; grid-template-columns: 1.4fr 1fr; gap: 50px; align-items: center; }
+.lead { font-size: 1.15rem; color: var(--muted); max-width: 580px; }
+.hero__actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 28px 0 22px; }
+.hero__badges { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px 22px; color: var(--muted); font-size: 0.95rem; }
+
+.hero__card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  background: #fff;
+  padding: 26px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.stat { background: var(--bg-alt); border-radius: 10px; padding: 20px; text-align: center; }
+.stat strong { display: block; font-size: 2rem; color: var(--primary); }
+.stat span { color: var(--muted); font-size: 0.9rem; }
+
+/* ========== Secțiuni ========== */
+.section { padding: 80px 0; }
+.section--alt { background: var(--bg-alt); }
+.section__head { text-align: center; max-width: 680px; margin: 0 auto 48px; }
+.section__head p:last-child { color: var(--muted); }
+
+.grid { display: grid; gap: 24px; }
+.grid--3 { grid-template-columns: repeat(3, 1fr); }
+
+.card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.card:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
+.card p { color: var(--muted); margin: 0; }
+.card__icon { font-size: 2rem; margin-bottom: 12px; }
+
+/* ========== Prețuri ========== */
+.pricing { align-items: stretch; }
+.price-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+}
+.price-card--featured { border: 2px solid var(--primary); box-shadow: var(--shadow); }
+.price-card ul { list-style: none; padding: 0; margin: 0 0 28px; flex: 1; }
+.price-card li { padding: 8px 0 8px 26px; position: relative; border-bottom: 1px solid var(--border); }
+.price-card li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+.price { font-size: 2.4rem; font-weight: 700; color: var(--primary); margin-bottom: 20px; }
+.price span { display: block; font-size: 0.85rem; font-weight: 500; color: var(--muted); }
+.price small { font-size: 1rem; font-weight: 500; color: var(--muted); }
+.tag {
+  position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+  background: var(--accent); color: #fff;
+  font-size: 0.8rem; font-weight: 600;
+  padding: 4px 14px; border-radius: 999px;
+  white-space: nowrap;
+}
+.note { text-align: center; color: var(--muted); margin-top: 28px; }
+
+/* ========== Pași ========== */
+.steps { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.steps li { text-align: center; padding: 10px 20px; }
+.steps p { color: var(--muted); }
+.steps__num {
+  display: inline-grid; place-items: center;
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  font-size: 1.4rem; font-weight: 700;
+  margin-bottom: 16px;
+}
+
+/* ========== Despre noi ========== */
+.about { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+.about p { color: var(--muted); }
+.checklist { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+.checklist li {
+  background: #fff;
+  border-left: 4px solid var(--accent);
+  border-radius: 10px;
+  padding: 16px 20px;
+  color: var(--muted);
+}
+.checklist strong { color: var(--text); }
+
+/* ========== Recenzii ========== */
+.quote {
+  margin: 0;
+  background: var(--bg-alt);
+  border-radius: var(--radius);
+  padding: 28px;
+}
+.quote p { font-style: italic; }
+.quote footer { font-weight: 600; font-size: 0.9rem; color: var(--muted); }
+
+/* ========== Întrebări frecvente ========== */
+.faq details {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin-bottom: 12px;
+  padding: 0 22px;
+}
+.faq summary {
+  cursor: pointer;
+  font-weight: 600;
+  padding: 18px 0;
+  list-style: none;
+  position: relative;
+  padding-right: 30px;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; position: absolute; right: 0; top: 14px; font-size: 1.5rem; color: var(--primary); }
+.faq details[open] summary::after { content: "−"; }
+.faq details p { color: var(--muted); padding-bottom: 12px; }
+
+/* ========== Contact ========== */
+.contact { background: var(--primary); color: #fff; }
+.contact .eyebrow { color: #8fe3c4; }
+.contact__inner { display: grid; grid-template-columns: 1fr 1.2fr; gap: 50px; align-items: start; }
+.contact__info p { color: #d6e4f2; }
+.contact__list { list-style: none; padding: 0; margin: 24px 0 0; display: grid; gap: 14px; }
+.contact__list li { display: flex; gap: 12px; align-items: center; }
+.contact__list a { color: #fff; }
+
+.form {
+  background: #fff;
+  color: var(--text);
+  border-radius: var(--radius);
+  padding: 30px;
+  display: grid;
+  gap: 16px;
+}
+.form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form label { display: grid; gap: 6px; font-weight: 500; font-size: 0.92rem; }
+.form input, .form select, .form textarea {
+  font: inherit;
+  padding: 11px 13px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  width: 100%;
+}
+.form input:focus, .form select:focus, .form textarea:focus { outline: 2px solid var(--primary); border-color: transparent; }
+.form__consent { grid-template-columns: auto 1fr !important; align-items: start; font-weight: 400 !important; color: var(--muted); }
+.form__consent input { width: auto; margin-top: 4px; }
+.form__hint { font-size: 0.82rem; color: var(--muted); margin: 0; text-align: center; }
+
+/* ========== Subsol ========== */
+.footer { background: #0a2540; color: #a9bbcd; padding: 28px 0; font-size: 0.9rem; }
+.footer__inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; }
+.footer p { margin: 0; }
+.footer strong { color: #fff; }
+
+/* ========== Telefon și tabletă ========== */
+@media (max-width: 900px) {
+  .hero__inner, .about, .contact__inner { grid-template-columns: 1fr; }
+  .grid--3, .steps { grid-template-columns: 1fr; }
+  .hero, .section { padding: 56px 0; }
+  .pricing { gap: 32px; }
+
+  .nav-toggle { display: block; }
+  .nav {
+    display: none;
+    position: absolute;
+    top: 68px; left: 0; right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    padding: 10px 20px 20px;
+  }
+  .nav.is-open { display: flex; }
+  .nav a { padding: 12px 0; }
+  .nav a.btn { margin-top: 8px; padding: 0.7em; }
+}
+
+@media (max-width: 520px) {
+  .form__row { grid-template-columns: 1fr; }
+  .hero__card { padding: 16px; gap: 10px; }
+  .stat { padding: 14px 8px; }
+  .stat strong { font-size: 1.6rem; }
+  .form { padding: 22px; }
+}
