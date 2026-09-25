@@ -41,7 +41,7 @@ Date structurate pentru Google (JSON-LD): firma (AccountingService) și întreb�
 
 Cu cheia Web3Forms, formularul trimite mesajul direct pe e-mail. Fără cheie, deschide aplicația de e-mail a vizitatorului.
 1. Intră pe https://web3forms.com, scrie adresa **serviciidecontabilitateanglia@gmail.com** și apasă **Create Access Key**.
-2. Cheia vine pe e-mail. Pune-o în `script.js`, la `const WEB3FORMS_KEY = "";`, între ghilimele.
+2. Cheia vine pe e-mail. Pune-o în `script.js`, la `const WEB3FORMS_KEY`, între ghilimele. **Activă acum**: formularul „Contact - Servicii De Contabilitate Anglia” din contul Web3Forms.
 3. Dacă serverul Web3Forms nu răspunde, formularul deschide automat aplicația de e-mail, deci nu se pierde niciun mesaj.
 
 Statistici de vizitare: https://contabilitateanglia.goatcounter.com (fără cookie-uri; codul e la sfârșitul fiecărei pagini HTML).
