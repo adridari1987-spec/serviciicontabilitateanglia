@@ -131,6 +131,7 @@
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Sari la conținut</a>
 
   <!-- ========== ANTET ========== -->
   <header class="header">
@@ -144,7 +145,7 @@
           <a href="#servicii">Servicii</a>
           <a href="#calculator-cis">Calculatoare</a>
           <a href="#preturi">Prețuri</a>
-          <a href="#termene">Termene</a>
+          <a href="termene.html">Termene</a>
           <a href="#ghiduri">Ghiduri</a>
           <a href="#contact" class="btn btn--small">Cere ofertă</a>
         </nav>
@@ -159,7 +160,13 @@
     </div>
   </header>
 
-  <main>
+  <main id="main">
+    <div class="sezon" data-sezon hidden data-text="⏰ Mai sunt {n} zile până la 31 ianuarie, termenul pentru declarația Self Assessment." data-ultima="⏰ Astăzi e ultima zi pentru declarația Self Assessment!">
+      <div class="container sezon__inner">
+        <p data-sezon-text></p>
+        <a href="#contact" class="btn btn--small" data-tip="Self-employed">Cere ofertă</a>
+      </div>
+    </div>
     <!-- ========== PREZENTARE ========== -->
     <section class="hero" id="acasa">
       <div class="container hero__inner">
@@ -388,26 +395,28 @@
           <h2>Prețuri clare, stabilite de la început</h2>
           <p>Prețurile marcate „de la” depind de volumul de muncă. Prima consultație este gratuită.</p>
         </div>
-        <div class="grid grid--4 pricing">
+        <div class="grid grid--3 pricing">
           <article class="price-card">
-            <h3>Raportare MTD</h3>
-            <p class="price"><span>preț fix</span> £75 <small>/ raportare</small></p>
+            <h3>Self Assessment / CIS</h3>
+            <p class="price"><span>de la</span> £150 <small>/ declarație</small></p>
             <ul>
-              <li>Raportare digitală la HMRC</li>
-              <li>Evidența veniturilor și cheltuielilor</li>
-              <li>Verificare înainte de trimitere</li>
+              <li>Declarația anuală (Tax Return)</li>
+              <li>Toate cheltuielile deductibile</li>
+              <li>Cererea de rambursare CIS</li>
+              <li>Explicarea scrisorilor HMRC</li>
             </ul>
-            <a href="#contact" class="btn btn--ghost btn--block">Cere ofertă</a>
+            <a href="#contact" class="btn btn--ghost btn--block" data-tip="Self-employed">Cere ofertă</a>
           </article>
           <article class="price-card">
-            <h3>Raportare VAT</h3>
-            <p class="price"><span>preț fix</span> £75 <small>/ declarație</small></p>
+            <h3>Pachet Making Tax Digital</h3>
+            <p class="price"><span>preț fix</span> £300 <small>/ an</small></p>
             <ul>
-              <li>Declarația VAT (VAT Return)</li>
-              <li>Calculul VAT de plată sau de recuperat</li>
-              <li>Trimitere prin Making Tax Digital</li>
+              <li>4 raportări trimestriale (£75 fiecare)</li>
+              <li>Declarația anuală inclusă</li>
+              <li>Evidențe digitale compatibile MTD</li>
+              <li>Noi urmărim termenele</li>
             </ul>
-            <a href="#contact" class="btn btn--ghost btn--block">Cere ofertă</a>
+            <a href="#contact" class="btn btn--ghost btn--block" data-tip="Raportare Making Tax Digital">Cere ofertă</a>
           </article>
           <article class="price-card price-card--featured">
             <span class="tag">Cel mai ales</span>
@@ -419,7 +428,27 @@
               <li>Declarația Corporation Tax</li>
               <li>Confirmation Statement</li>
             </ul>
-            <a href="#contact" class="btn btn--block">Cere ofertă</a>
+            <a href="#contact" class="btn btn--block" data-tip="Firmă Ltd">Cere ofertă</a>
+          </article>
+          <article class="price-card">
+            <h3>Raportare VAT</h3>
+            <p class="price"><span>preț fix</span> £75 <small>/ declarație</small></p>
+            <ul>
+              <li>Declarația VAT (VAT Return)</li>
+              <li>Calculul VAT de plată sau de recuperat</li>
+              <li>Trimitere prin Making Tax Digital</li>
+            </ul>
+            <a href="#contact" class="btn btn--ghost btn--block" data-tip="Firmă Ltd cu VAT">Cere ofertă</a>
+          </article>
+          <article class="price-card">
+            <h3>Documente pentru ipotecă</h3>
+            <p class="price"><span>de la</span> £200</p>
+            <ul>
+              <li>SA302 și Tax Year Overview</li>
+              <li>Conturile anuale</li>
+              <li>Scrisoarea de venit de la contabil</li>
+            </ul>
+            <a href="#contact" class="btn btn--ghost btn--block" data-tip="Documente pentru ipotecă / refinanțare">Cere ofertă</a>
           </article>
           <article class="price-card">
             <h3>Investigații HMRC</h3>
@@ -429,11 +458,10 @@
               <li>Pregătirea documentelor</li>
               <li>Comunicarea cu HMRC în numele tău</li>
             </ul>
-            <a href="#contact" class="btn btn--ghost btn--block">Cere ofertă</a>
+            <a href="#contact" class="btn btn--ghost btn--block" data-tip="Investigație / scrisoare HMRC">Cere ofertă</a>
           </article>
         </div>
-        <p class="note">Documente pentru ipotecă și refinanțare: <strong>de la £200</strong>.</p>
-        <p class="note">Pentru Self Assessment, CIS și alte servicii, prețul se stabilește după <strong>prima consultație, care este gratuită</strong>.</p>
+        <p class="note">Pentru alte servicii, prețul se stabilește după <strong>prima consultație, care este gratuită</strong>.</p>
       </div>
     </section>
 
@@ -458,118 +486,9 @@
           <li>
             <span class="steps__num">3</span>
             <h3>Ne ocupăm de tot</h3>
-            <p>Ne trimiți documentele online, iar noi ne ocupăm de HMRC și de termene.</p>
+            <p>Ne trimiți documentele online (<a href="documente.html">vezi lista</a>), iar noi ne ocupăm de HMRC și de termene.</p>
           </li>
         </ol>
-      </div>
-    </section>
-
-    <!-- ========== TERMENE FISCALE ========== -->
-    <section class="section section--alt" id="termene">
-      <div class="container container--narrow">
-        <div class="section__head">
-          <p class="eyebrow">Termene fiscale</p>
-          <h2>Nu mai rata niciun termen HMRC</h2>
-          <p>Termenele importante pentru self-employed, CIS și Making Tax Digital. Adaugă-le în calendarul tău ca să primești memento.</p>
-        </div>
-
-        <p class="termene__next" data-termen-urmator hidden>Următorul termen: <strong data-termen-titlu></strong>, <span data-termen-zile></span></p>
-
-        <ol class="termene" data-calendar-label="+ Google Calendar" data-azi="astăzi" data-maine="mâine" data-zile="în {n} zile">
-          <li data-date="2026-10-05">
-            <time datetime="2026-10-05">5 oct. 2026</time>
-            <div><h3>Înregistrare pentru Self Assessment</h3><p>Dacă ai început să lucrezi pe cont propriu (inclusiv pe CIS) în anul fiscal 2025/26, trebuie să te înregistrezi la HMRC până la această dată.</p></div>
-          </li>
-          <li data-date="2026-10-31">
-            <time datetime="2026-10-31">31 oct. 2026</time>
-            <div><h3>Declarația pe hârtie 2025/26</h3><p>Ultima zi pentru declarația Self Assessment depusă pe hârtie. Online ai timp până la 31 ianuarie.</p></div>
-          </li>
-          <li data-date="2026-11-07">
-            <time datetime="2026-11-07">7 nov. 2026</time>
-            <div><h3>Raportare trimestrială MTD</h3><p>Pentru perioada 6 iulie – 5 octombrie 2026, dacă ești inclus în Making Tax Digital (venituri de peste £50.000).</p></div>
-          </li>
-          <li data-date="2026-12-30">
-            <time datetime="2026-12-30">30 dec. 2026</time>
-            <div><h3>Plata prin codul fiscal PAYE</h3><p>Dacă ai și salariu și datorezi sub £3.000, depune declarația online până azi ca suma să fie colectată prin salariu.</p></div>
-          </li>
-          <li data-date="2027-01-31">
-            <time datetime="2027-01-31">31 ian. 2027</time>
-            <div><h3>Declarația online Self Assessment 2025/26 și plata impozitului</h3><p>Termenul final pentru declarația online și pentru plata impozitului, plus prima plată în avans (payment on account) pentru 2026/27. Întârzierea aduce o amendă de £100.</p></div>
-          </li>
-          <li data-date="2027-02-07">
-            <time datetime="2027-02-07">7 feb. 2027</time>
-            <div><h3>Raportare trimestrială MTD</h3><p>Pentru perioada 6 octombrie 2026 – 5 ianuarie 2027.</p></div>
-          </li>
-          <li data-date="2027-04-05">
-            <time datetime="2027-04-05">5 apr. 2027</time>
-            <div><h3>Sfârșitul anului fiscal 2026/27</h3><p>Ziua în care se închide anul fiscal. Adună documentele pentru declarația următoare.</p></div>
-          </li>
-          <li data-date="2027-05-07">
-            <time datetime="2027-05-07">7 mai 2027</time>
-            <div><h3>Raportare trimestrială MTD</h3><p>Pentru perioada 6 ianuarie – 5 aprilie 2027.</p></div>
-          </li>
-          <li data-date="2027-07-31">
-            <time datetime="2027-07-31">31 iul. 2027</time>
-            <div><h3>A doua plată în avans pentru 2026/27</h3><p>A doua plată în avans (payment on account), dacă HMRC ți-a cerut plăți în avans.</p></div>
-          </li>
-        </ol>
-
-        <div class="termene__actions">
-          <a href="termene-fiscale.ics" class="btn" download>Adaugă toate în calendar</a>
-        </div>
-        <p class="note">În fiecare lună, pe 19, contractorii CIS depun declarația lunară CIS. Termenele pentru VAT, Corporation Tax și bilanțul unei firme Ltd depind de anul financiar al firmei. Le calculăm noi pentru fiecare client.</p>
-      </div>
-    </section>
-
-    <!-- ========== DOCUMENTE NECESARE ========== -->
-    <section class="section" id="documente">
-      <div class="container">
-        <div class="section__head">
-          <p class="eyebrow">Pregătește-te</p>
-          <h2>Ce documente ne trimiți</h2>
-          <p>Lista documentelor de care avem nevoie, în funcție de situația ta. O poți printa sau salva ca PDF.</p>
-        </div>
-        <div class="grid grid--3 docs">
-          <article class="card">
-            <h3>CIS și self-employed</h3>
-            <ul class="docs__list">
-              <li>Numărul UTR și numărul de asigurare națională (NI)</li>
-              <li>Toate CIS statements lunare din anul fiscal</li>
-              <li>Extrasele de cont pentru tot anul</li>
-              <li>Facturi și bonuri pentru unelte, echipament și haine de protecție</li>
-              <li>Evidența milelor (data, destinația, numărul de mile)</li>
-              <li>Facturile de telefon și internet</li>
-              <li>Alte venituri: P60 sau P45 de la angajator, chirii</li>
-            </ul>
-          </article>
-          <article class="card">
-            <h3>Firmă Ltd</h3>
-            <ul class="docs__list">
-              <li>Extrasele de cont ale firmei, lunar</li>
-              <li>Facturile emise către clienți</li>
-              <li>Facturi și bonuri pentru cheltuieli</li>
-              <li>Contracte de leasing sau de împrumut</li>
-              <li>Salariile plătite, dacă nu ne ocupăm noi de ele</li>
-              <li>Codul de autentificare Companies House</li>
-              <li>Numărul UTR al firmei și numărul de VAT, dacă ai</li>
-            </ul>
-          </article>
-          <article class="card">
-            <h3>Firmă nouă (înființare)</h3>
-            <ul class="docs__list">
-              <li>Numele dorit pentru firmă, plus 1–2 variante</li>
-              <li>Adresa înregistrată a firmei (registered office)</li>
-              <li>Pentru fiecare director: nume, data nașterii, naționalitate, adresă</li>
-              <li>Numărul de asigurare națională (NI) al fiecărui director</li>
-              <li>Act de identitate valabil, pentru verificarea identității cerută de Companies House</li>
-              <li>Activitatea firmei (ce servicii oferi)</li>
-              <li>Acționarii și numărul de acțiuni</li>
-            </ul>
-          </article>
-        </div>
-        <div class="termene__actions">
-          <button type="button" class="btn btn--ghost" data-print-docs>Printează sau salvează PDF</button>
-        </div>
       </div>
     </section>
 
@@ -729,17 +648,14 @@
                 <option>Altceva</option>
               </select>
             </label>
-            <label>Număr de angajați
+            <label class="form__angajati" hidden>Număr de angajați
               <input type="number" name="angajati" min="0" value="0">
             </label>
           </div>
           <label>Mesaj
             <textarea name="mesaj" rows="4" placeholder="Spune-ne pe scurt cu ce te putem ajuta"></textarea>
           </label>
-          <label class="form__consent">
-            <input type="checkbox" required>
-            <span>Sunt de acord cu prelucrarea datelor personale pentru a primi o ofertă.</span>
-          </label>
+          <p class="form__privacy">Folosim datele doar ca să îți răspundem și să îți pregătim oferta. Detalii în <a href="confidentialitate.html">politica de confidențialitate</a>.</p>
           <button type="submit" class="btn btn--block">Trimite cererea</button>
           <p class="form__hint" data-hint-direct="Îți răspundem în cel mult 24 de ore.">La trimitere se deschide aplicația ta de e-mail cu mesajul completat.</p>
           <p class="form__status" role="status" hidden></p>
@@ -752,7 +668,7 @@
   <footer class="footer">
     <div class="container footer__inner">
       <p><strong>Servicii De Contabilitate Anglia</strong> · London, Marea Britanie</p>
-      <p><a href="index.html#ghiduri">Ghiduri</a> · <a href="confidentialitate.html">Politica de confidențialitate</a> · © <span id="an"></span> Toate drepturile rezervate.</p>
+      <p><a href="index.html#ghiduri">Ghiduri</a> · <a href="termene.html">Termene fiscale</a> · <a href="documente.html">Documente necesare</a> · <a href="confidentialitate.html">Politica de confidențialitate</a> · © <span id="an"></span> Toate drepturile rezervate.</p>
     </div>
   </footer>
 
@@ -761,6 +677,11 @@
     <span>WhatsApp</span>
   </a>
 
+  <nav class="mobile-bar" aria-label="Contact rapid">
+    <a href="tel:+447909451914"><span aria-hidden="true">📞</span>Sună</a>
+    <a href="https://wa.me/447909451914?text=Bun%C4%83%20ziua%21%20A%C8%99%20dori%20informa%C8%9Bii%20despre%20serviciile%20de%20contabilitate." target="_blank" rel="noopener"><span aria-hidden="true">💬</span>WhatsApp</a>
+    <a href="https://calendly.com/serviciidecontabilitateanglia/30min" target="_blank" rel="noopener"><span aria-hidden="true">📅</span>Programează</a>
+  </nav>
   <script src="script.js"></script>
   <script data-goatcounter="https://contabilitateanglia.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
