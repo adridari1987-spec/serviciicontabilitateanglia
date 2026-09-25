@@ -5,6 +5,11 @@ const EMAIL_FIRMA = "serviciidecontabilitateanglia@gmail.com";
 // Cât timp e goală, formularul deschide aplicația de e-mail a vizitatorului.
 const WEB3FORMS_KEY = "0e91ada6-2f52-441a-ac1f-96f3b627da44";
 
+// Programări online și WhatsApp (pentru mesajele de după trimitere și butoanele de share)
+const CALENDLY = "https://calendly.com/serviciidecontabilitateanglia/30min";
+const WHATSAPP = "447909451914";
+const linkWhatsApp = (text) => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`;
+
 // Textele e-mailului, în limba paginii (index.html = română, en.html = engleză)
 const TEXTE = {
   ro: {
@@ -12,7 +17,13 @@ const TEXTE = {
     nume: "Nume", telefon: "Telefon", email: "E-mail",
     tip: "Situația", angajati: "Număr de angajați", mesaj: "Mesaj",
     seTrimite: "Se trimite…",
-    trimis: "Mulțumim! Am primit mesajul și îți răspundem în cel mult 24 de ore.",
+    trimis: `Mulțumim! Am primit mesajul și te contactăm în cel mult 24 de ore. Vrei mai repede? <a href="${CALENDLY}" target="_blank" rel="noopener">Programează o consultație</a> sau <a href="https://wa.me/${WHATSAPP}" target="_blank" rel="noopener">scrie-ne pe WhatsApp</a>.`,
+    waButon: "Trimite rezultatul pe WhatsApp",
+    waCis: (stare, suma, brut) => `Bună ziua! Am folosit calculatorul CIS de pe site: ${stare} ${suma} (venit brut ${brut}). Mă puteți ajuta cu declarația?`,
+    waLtd: (an, profit) => `Bună ziua! Am folosit calculatorul Self-employed sau Ltd (${an}) pentru un profit de ${profit} pe an. Aș vrea să discutăm ce variantă mi se potrivește.`,
+    detalii: "Vezi detaliile ↓",
+    ceInclude: "Ce include ▾",
+    ascunde: "Ascunde ▴",
     eroare: "Mesajul nu a putut fi trimis. Se deschide aplicația de e-mail ca să-l trimiți de acolo.",
   },
   en: {
@@ -20,7 +31,13 @@ const TEXTE = {
     nume: "Name", telefon: "Phone", email: "E-mail",
     tip: "Situation", angajati: "Number of employees", mesaj: "Message",
     seTrimite: "Sending…",
-    trimis: "Thank you! We've received your message and will reply within 24 hours.",
+    trimis: `Thank you! We've received your message and will get back to you within 24 hours. Need us sooner? <a href="${CALENDLY}" target="_blank" rel="noopener">Book a consultation</a> or <a href="https://wa.me/${WHATSAPP}" target="_blank" rel="noopener">message us on WhatsApp</a>.`,
+    waButon: "Send my result on WhatsApp",
+    waCis: (stare, suma, brut) => `Hello! I used the CIS calculator on your website: ${stare} ${suma} (gross pay ${brut}). Can you help me with my tax return?`,
+    waLtd: (an, profit) => `Hello! I used the self-employed or Ltd calculator (${an}) for a profit of ${profit} a year. I'd like to talk about which option suits me.`,
+    detalii: "See details ↓",
+    ceInclude: "What's included ▾",
+    ascunde: "Hide ▴",
     eroare: "Your message couldn't be sent. Your e-mail app will open so you can send it from there.",
   },
 };
@@ -50,12 +67,27 @@ toggle.addEventListener("click", () => {
   toggle.setAttribute("aria-expanded", open);
 });
 
-nav.querySelectorAll("a").forEach((link) =>
-  link.addEventListener("click", () => {
-    nav.classList.remove("is-open");
-    toggle.setAttribute("aria-expanded", false);
-  })
-);
+const inchideMeniul = () => {
+  nav.classList.remove("is-open");
+  toggle.setAttribute("aria-expanded", false);
+};
+nav.querySelectorAll("a").forEach((link) => link.addEventListener("click", inchideMeniul));
+document.addEventListener("click", (e) => {
+  if (nav.classList.contains("is-open") && !nav.contains(e.target) && !toggle.contains(e.target)) inchideMeniul();
+});
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && nav.classList.contains("is-open")) { inchideMeniul(); toggle.focus(); }
+});
+
+// Pe telefon, bara de sus se ascunde când derulezi în jos și reapare când derulezi în sus
+const antet = document.querySelector(".header");
+let ultimulY = window.scrollY;
+window.addEventListener("scroll", () => {
+  const y = window.scrollY;
+  const ascunde = window.innerWidth <= 760 && y > ultimulY && y > 120 && !nav.classList.contains("is-open");
+  antet.classList.toggle("header--hidden", ascunde);
+  ultimulY = y;
+}, { passive: true });
 
 // Formularul de contact (există doar pe paginile principale, nu și pe ghiduri).
 // Cu cheie Web3Forms trimite mesajul direct; altfel deschide aplicația de e-mail.
@@ -94,7 +126,9 @@ formular?.addEventListener("submit", async (e) => {
 
   const status = formular.querySelector(".form__status");
   const buton = formular.querySelector("[type=submit]");
-  const arata = (text, tip) => { status.textContent = text; status.dataset.tip = tip; status.hidden = false; };
+  const arata = (text, tip, html = false) => {
+    status[html ? "innerHTML" : "textContent"] = text; status.dataset.tip = tip; status.hidden = false;
+  };
   buton.disabled = true;
   arata(t.seTrimite, "info");
   try {
@@ -112,7 +146,7 @@ formular?.addEventListener("submit", async (e) => {
     });
     const rezultat = await raspuns.json();
     if (!rezultat.success) throw new Error(rezultat.message);
-    arata(t.trimis, "ok");
+    arata(t.trimis, "ok", true);
     numara("formular-trimis");
     formular.reset();
     actualizeazaAngajati();
@@ -149,6 +183,21 @@ if (sezon) {
     sezon.hidden = false;
   }
 }
+
+// Prețuri pe telefon: lista „Ce include” se deschide la cerere
+document.querySelectorAll(".price-card ul").forEach((lista) => {
+  const buton = document.createElement("button");
+  buton.type = "button";
+  buton.className = "price-card__more";
+  buton.textContent = t.ceInclude;
+  buton.setAttribute("aria-expanded", "false");
+  buton.addEventListener("click", () => {
+    const deschis = lista.classList.toggle("is-open");
+    buton.textContent = deschis ? t.ascunde : t.ceInclude;
+    buton.setAttribute("aria-expanded", deschis);
+  });
+  lista.before(buton);
+});
 
 // Anul curent în subsol
 const an = document.getElementById("an");
@@ -233,6 +282,32 @@ if (calc) {
   const lire = new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP", maximumFractionDigits: 0 });
   const numar = (nume) => Math.max(parseFloat(form.elements[nume].value) || 0, 0);
   let ultimRezultat = null;
+  const rezultatBox = calc.querySelector(".calc__result");
+
+  // Buton „Trimite rezultatul pe WhatsApp”, sub butonul principal
+  const waCis = document.createElement("a");
+  waCis.className = "btn btn--wa btn--block calc__wa";
+  waCis.target = "_blank";
+  waCis.rel = "noopener";
+  waCis.textContent = t.waButon;
+  waCis.hidden = true;
+  calc.querySelector(".calc__cta").after(waCis);
+
+  // Pe telefon, rezultatul e sub formular: o bară mică jos îl arată cât timp completezi
+  const bara = document.createElement("button");
+  bara.type = "button";
+  bara.className = "calc-sticky";
+  bara.hidden = true;
+  bara.innerHTML = '<span class="calc-sticky__label"></span><strong class="calc-sticky__amount"></strong><span class="calc-sticky__more"></span>';
+  bara.querySelector(".calc-sticky__more").textContent = t.detalii;
+  bara.addEventListener("click", () => rezultatBox.scrollIntoView({ behavior: "smooth", block: "center" }));
+  document.body.appendChild(bara);
+  const vizibil = { form: false, rezultat: false };
+  const actualizeazaBara = () => { bara.hidden = !(ultimRezultat && vizibil.form && !vizibil.rezultat); };
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(([e]) => { vizibil.form = e.isIntersecting; actualizeazaBara(); }).observe(form);
+    new IntersectionObserver(([e]) => { vizibil.rezultat = e.isIntersecting; actualizeazaBara(); }, { threshold: 0.35 }).observe(rezultatBox);
+  }
 
   // Cât timp utilizatorul nu scrie singur suma reținută, o estimăm ca 20% din brut
   retinutInput.addEventListener("input", () => { retinutInput.dataset.editat = retinutInput.value !== "" ? "da" : ""; });
@@ -258,6 +333,15 @@ if (calc) {
       const v = r[el.dataset.out];
       el.textContent = lire.format(el.dataset.out === "rezultat" ? Math.abs(v) : v);
     });
+
+    const eticheta = [...calc.querySelectorAll(".calc__label")].find((el) => !el.hidden).textContent;
+    const suma = lire.format(Math.abs(r.rezultat));
+    waCis.hidden = !brut;
+    waCis.href = linkWhatsApp(t.waCis(eticheta.toLowerCase(), suma, lire.format(brut)));
+    bara.dataset.stare = stare;
+    bara.querySelector(".calc-sticky__label").textContent = eticheta;
+    bara.querySelector(".calc-sticky__amount").textContent = suma;
+    actualizeazaBara();
   };
   form.addEventListener("input", actualizeaza);
   actualizeaza();
@@ -316,6 +400,12 @@ if (ltd) {
   const input = ltd.querySelector("[name=profit]");
   const lire = new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP", maximumFractionDigits: 0 });
   let ultim = null;
+  const waLtd = document.createElement("a");
+  waLtd.className = "btn btn--wa";
+  waLtd.target = "_blank";
+  waLtd.rel = "noopener";
+  waLtd.textContent = t.waButon;
+  sectiune.querySelector(".ltd__cta").after(waLtd);
 
   const actualizeaza = () => {
     const profit = Math.max(parseFloat(input.value) || 0, 0);
@@ -331,6 +421,7 @@ if (ltd) {
     const castigator = r.ltdNet > r.seNet ? "ltd" : "se";
     ultim = profit ? { profit, an, castigator, diferenta: r.diferenta } : null;
     if (profit && !ltd.dataset.numarat) { ltd.dataset.numarat = "da"; numara("calculator-ltd"); }
+    waLtd.href = linkWhatsApp(t.waLtd(an, lire.format(profit)));
 
     sectiune.querySelectorAll("[data-ltd-out]").forEach((el) => { el.textContent = lire.format(r[el.dataset.ltdOut]); });
     sectiune.querySelectorAll("[data-ltd-show]").forEach((el) => {

@@ -5,17 +5,18 @@ Site de prezentare pentru o firmă de contabilitate din Marea Britanie, pentru c
 ## Ce conține
 
 - **Prezentare**: mesaj principal, butoane „Cere o ofertă gratuită” și „Programează consultația gratuită” (Calendly)
-- **Contact rapid**: pe telefon, bară fixă jos cu Sună · WhatsApp · Programează; pe calculator, buton WhatsApp plutitor
+- **Contact rapid**: pe telefon, bară fixă jos cu Sună · WhatsApp · Programează (bara de sus se ascunde la derulare în jos); pe calculator, buton WhatsApp plutitor
+- **Iconițe desenate** (SVG, în culorile site-ului), la fel pe toate dispozitivele
 - **Banner de sezon**: în decembrie și ianuarie arată automat câte zile mai sunt până la termenul din 31 ianuarie
 - **Servicii**: Self Assessment, CIS și recuperare taxe, administrare firme Ltd, raportare VAT, raportare Making Tax Digital, reprezentare în investigații HMRC
 - **Documente pentru ipotecă și refinanțare** (de la £200): banner sub servicii, cu nota că nu oferim consultanță de credit (activitate reglementată FCA)
-- **Calculator CIS**: estimează pe loc rambursarea CIS din venitul brut, suma reținută și cheltuieli (unelte, echipament de protecție, mile, transport, telefon, altele). Butonul de sub rezultat completează formularul de contact cu estimarea.
+- **Calculator CIS**: estimează pe loc rambursarea CIS din venitul brut, suma reținută și cheltuieli (unelte, echipament de protecție, mile, transport, telefon, altele). Butonul de sub rezultat completează formularul de contact cu estimarea; „Trimite rezultatul pe WhatsApp” deschide o conversație cu estimarea scrisă. Pe telefon, o bară jos arată rezultatul cât timp completezi.
 - **Calculator Self-employed sau Ltd**: compară cât îți rămâne în mână ca self-employed și cu o firmă Ltd (salariu de £12.570 + dividende), pentru anul fiscal 2025/26 sau 2026/27
 - **Prețuri**: Self Assessment / CIS de la £150, pachet MTD £300/an (4 raportări × £75, declarația anuală inclusă), administrare Ltd de la £100/lună, raportare VAT £75, documente pentru ipotecă de la £200, investigații HMRC de la £250, prima consultație gratuită
 - **Cum lucrăm**: 3 pași
 - **Termene fiscale** (pagina `termene.html` / `deadlines.html`): următorul termen evidențiat, link „+ Google Calendar” la fiecare termen și fișier de calendar cu toate termenele
 - **Documente necesare** (pagina `documente.html` / `documents.html`): liste pentru CIS/self-employed, Ltd și firmă nouă, cu buton de printare sau salvare PDF
-- **Ghiduri** (în română): numărul UTR, cheltuieli deductibile pe CIS, scrisori de la HMRC, ipotecă și refinanțare, self-employed sau Ltd, Making Tax Digital, taxe pe chirii
+- **Ghiduri** (în română): numărul UTR, cheltuieli deductibile pe CIS, scrisori de la HMRC, ipotecă și refinanțare, self-employed sau Ltd, Making Tax Digital, taxe pe chirii. Fiecare are timp de citit, link „← Toate ghidurile” și 3 ghiduri similare la final (lista `RELATED` din generator).
 - **Despre noi**
 - **Întrebări frecvente**: UTR, termenul Self Assessment, CIS, Making Tax Digital, self-employed sau Ltd, scrisori HMRC
 - **Contact**: formular de ofertă (câmpul „angajați” apare doar pentru firme Ltd), telefon, WhatsApp, e-mail, oraș, program
