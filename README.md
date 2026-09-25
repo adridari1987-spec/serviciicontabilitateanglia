@@ -32,6 +32,8 @@ Site de prezentare pentru o firmă de contabilitate din Marea Britanie, pentru c
 | `og-image.png`, `og-image-en.png` | Imaginea care apare când trimiți linkul pe WhatsApp sau Facebook |
 | `sitemap.xml` | Lista paginilor, pentru Google Search Console |
 
+Statistici de vizitare: https://contabilitateanglia.goatcounter.com (fără cookie-uri; codul e la sfârșitul fiecărei pagini HTML).
+
 Dacă modifici un text, modifică-l în **ambele** fișiere, `index.html` și `en.html`.
 
 ## Date de contact
