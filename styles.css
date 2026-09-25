@@ -412,7 +412,7 @@ a { color: var(--primary); }
   background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px;
 }
 .termene time { font-weight: 700; color: var(--primary); }
-.termene h3 { font-size: 1rem; margin: 0 0 4px; }
+.termene h2, .termene h3 { font-size: 1rem; margin: 0 0 4px; }
 .termene p { margin: 0; color: var(--muted); font-size: 0.93rem; }
 .termene li.is-next { border: 2px solid var(--accent); }
 .termene li.is-past { opacity: 0.5; }
@@ -422,6 +422,7 @@ a { color: var(--primary); }
 .termene__actions { text-align: center; margin-top: 28px; }
 
 /* ========== Documente necesare ========== */
+.docs .card h2 { font-size: 1.15rem; }
 .docs__list { list-style: none; padding: 0; margin: 12px 0 0; }
 .docs__list li { position: relative; padding: 7px 0 7px 28px; border-top: 1px solid var(--border); color: var(--text); font-size: 0.95rem; }
 .docs__list li::before {

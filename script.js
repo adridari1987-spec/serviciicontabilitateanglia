@@ -472,7 +472,7 @@ if (termene) {
     else if (!urmator) { urmator = { li, data }; li.classList.add("is-next"); }
 
     // Link „Adaugă în Google Calendar” pentru fiecare termen
-    const titlu = li.querySelector("h3").textContent;
+    const titlu = li.querySelector("h2, h3").textContent;
     const detalii = li.querySelector("p").textContent + "\n\n" + location.href.split("#")[0];
     const link = document.createElement("a");
     link.className = "termen__add";
@@ -488,7 +488,7 @@ if (termene) {
   const box = document.querySelector("[data-termen-urmator]");
   if (box && urmator) {
     const n = Math.round((urmator.data - azi) / zi);
-    box.querySelector("[data-termen-titlu]").textContent = urmator.li.querySelector("h3").textContent;
+    box.querySelector("[data-termen-titlu]").textContent = urmator.li.querySelector("h2, h3").textContent;
     box.querySelector("[data-termen-zile]").textContent =
       n === 0 ? termene.dataset.azi : n === 1 ? termene.dataset.maine : termene.dataset.zile.replace("{n}", n);
     box.hidden = false;
