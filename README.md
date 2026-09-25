@@ -38,9 +38,9 @@ Dacă modifici un text, modifică-l în **ambele** fișiere, `index.html` și `e
 
 ## Date de contact
 
-Telefon/WhatsApp: +44 7344 883686 · E-mail: serviciidecontabilitateanglia@gmail.com · Oraș: London · Program: Luni–Sâmbătă, 09:00–17:00 · Programări online: https://calendly.com/serviciidecontabilitateanglia/30min
+Telefon/WhatsApp: +44 7909 451914 · E-mail: serviciidecontabilitateanglia@gmail.com · Oraș: London · Program: Luni–Sâmbătă, 09:00–17:00 · Programări online: https://calendly.com/serviciidecontabilitateanglia/30min
 
-Dacă le schimbi, schimbă-le în `index.html` **și** în `en.html` (telefonul apare și în formatul `447344883686`, pentru link-urile de apel și WhatsApp). E-mailul apare și în `script.js`, la `EMAIL_FIRMA`.
+Dacă le schimbi, schimbă-le în `index.html` **și** în `en.html` (telefonul apare și în formatul `447909451914`, pentru link-urile de apel și WhatsApp). E-mailul apare și în `script.js`, la `EMAIL_FIRMA`.
 
 ## Actualizarea anuală (după 6 aprilie)
 
