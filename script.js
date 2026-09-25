@@ -54,6 +54,7 @@ document.addEventListener("click", (e) => {
   if (h.startsWith("https://wa.me")) numara("click-whatsapp");
   else if (h.startsWith("tel:")) numara("click-telefon");
   else if (h.includes("calendly.com")) numara("click-programare");
+  else if (h.includes("g.page/r/")) numara("click-recenzie");
   else if (h.endsWith(".ics")) numara("calendar-descarcat");
   else if (a.classList.contains("termen__add")) numara("calendar-google");
 });

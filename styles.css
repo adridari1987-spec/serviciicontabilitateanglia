@@ -677,3 +677,6 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
   .logo__text { font-size: 0.8rem; }
   .header__right { gap: 6px; }
 }
+
+/* Îndemn la recenzie Google, în „Despre noi” */
+.about__review { margin: 20px 0 12px; font-weight: 500; }

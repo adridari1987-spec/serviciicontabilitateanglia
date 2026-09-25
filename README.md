@@ -49,7 +49,7 @@ Cu cheia Web3Forms, formularul trimite mesajul direct pe e-mail. Fără cheie, d
 2. Cheia vine pe e-mail. Pune-o în `script.js`, la `const WEB3FORMS_KEY`, între ghilimele. **Activă acum**: formularul „Contact - Servicii De Contabilitate Anglia” din contul Web3Forms.
 3. Dacă serverul Web3Forms nu răspunde, formularul deschide automat aplicația de e-mail, deci nu se pierde niciun mesaj.
 
-Statistici de vizitare: https://contabilitateanglia.goatcounter.com (fără cookie-uri; codul e la sfârșitul fiecărei pagini HTML). La **Events** vezi acțiunile: `formular-trimis`, `click-whatsapp`, `click-telefon`, `click-programare`, `calculator-cis`, `calculator-ltd` (și `-cerere` când se apasă butonul de sub rezultat), `calendar-descarcat`, `calendar-google`, `documente-print`.
+Statistici de vizitare: https://contabilitateanglia.goatcounter.com (fără cookie-uri; codul e la sfârșitul fiecărei pagini HTML). La **Events** vezi acțiunile: `formular-trimis`, `click-whatsapp`, `click-telefon`, `click-programare`, `calculator-cis`, `calculator-ltd` (și `-cerere` când se apasă butonul de sub rezultat), `calendar-descarcat`, `calendar-google`, `documente-print`, `click-recenzie`.
 
 Dacă modifici un text, modifică-l în **ambele** fișiere, `index.html` și `en.html`.
 
@@ -72,6 +72,7 @@ La fiecare an fiscal nou:
 
 - „Răspuns în 24h” și programul „Luni–Sâmbătă, 09:00–17:00” (același ca în Calendly): păstrează-le doar dacă sunt adevărate.
 - Recenzii: adaugă doar recenzii reale, primite de la clienți (de exemplu de pe Google). În Marea Britanie, recenziile false sunt interzise prin lege.
+- Profilul Google Business e verificat. Linkul pentru recenzii (https://g.page/r/CcOHILthVoBxEBM/review) apare în „Despre noi” și în subsolul fiecărei pagini. Dacă Google îți dă alt link, schimbă-l în `index.html`, `en.html` și în generator (funcția `footer`).
 
 Poți edita fișierele direct pe GitHub: deschizi fișierul, apeși pe creionul ✏️, modifici textul și apeși „Commit changes”.
 
