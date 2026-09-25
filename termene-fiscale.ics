@@ -1,0 +1,152 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Servicii De Contabilitate Anglia//Termene fiscale//RO
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Termene fiscale HMRC
+BEGIN:VEVENT
+UID:20261005-termene-fiscale.ics@serviciicontabilitateanglia
+DTSTAMP:20260925T090000Z
+DTSTART;VALUE=DATE:20261005
+DTEND;VALUE=DATE:20261006
+SUMMARY:Înregistrare pentru Self Assessment
+DESCRIPTION:Dacă ai început să lucrezi pe cont propriu (inclusiv pe CI
+ S) în anul fiscal 2025/26\, trebuie să te înregistrezi la HMRC până 
+ la această dată.\n\nhttps://adridari1987-spec.github.io/serviciicontabi
+ litateanglia/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Înregistrare pentru Self Assessment
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:20261031-termene-fiscale.ics@serviciicontabilitateanglia
+DTSTAMP:20260925T090000Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:Declarația pe hârtie 2025/26
+DESCRIPTION:Ultima zi pentru declarația Self Assessment depusă pe hârt
+ ie. Online ai timp până la 31 ianuarie.\n\nhttps://adridari1987-spec.gi
+ thub.io/serviciicontabilitateanglia/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Declarația pe hârtie 2025/26
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:20261107-termene-fiscale.ics@serviciicontabilitateanglia
+DTSTAMP:20260925T090000Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:Raportare trimestrială MTD
+DESCRIPTION:Pentru perioada 6 iulie – 5 octombrie 2026\, dacă ești in
+ clus în Making Tax Digital (venituri de peste £50.000).\n\nhttps://adri
+ dari1987-spec.github.io/serviciicontabilitateanglia/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Raportare trimestrială MTD
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:20261230-termene-fiscale.ics@serviciicontabilitateanglia
+DTSTAMP:20260925T090000Z
+DTSTART;VALUE=DATE:20261230
+DTEND;VALUE=DATE:20261231
+SUMMARY:Plata prin codul fiscal PAYE
+DESCRIPTION:Dacă ai și salariu și datorezi sub £3.000\, depune declar
+ ația online până azi ca suma să fie colectată prin salariu.\n\nhttps
+ ://adridari1987-spec.github.io/serviciicontabilitateanglia/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Plata prin codul fiscal PAYE
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:20270131-termene-fiscale.ics@serviciicontabilitateanglia
+DTSTAMP:20260925T090000Z
+DTSTART;VALUE=DATE:20270131
+DTEND;VALUE=DATE:20270201
+SUMMARY:Declarația online Self Assessment 2025/26 și plata impozitului
+DESCRIPTION:Termenul final pentru declarația online și pentru plata imp
+ ozitului\, plus prima plată în avans (payment on account) pentru 2026/2
+ 7. Întârzierea aduce o amendă de £100.\n\nhttps://adridari1987-spec.g
+ ithub.io/serviciicontabilitateanglia/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Declarația online Self Assessment 2025/26 și plata impozitu
+ lui
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:20270207-termene-fiscale.ics@serviciicontabilitateanglia
+DTSTAMP:20260925T090000Z
+DTSTART;VALUE=DATE:20270207
+DTEND;VALUE=DATE:20270208
+SUMMARY:Raportare trimestrială MTD
+DESCRIPTION:Pentru perioada 6 octombrie 2026 – 5 ianuarie 2027.\n\nhttp
+ s://adridari1987-spec.github.io/serviciicontabilitateanglia/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Raportare trimestrială MTD
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:20270405-termene-fiscale.ics@serviciicontabilitateanglia
+DTSTAMP:20260925T090000Z
+DTSTART;VALUE=DATE:20270405
+DTEND;VALUE=DATE:20270406
+SUMMARY:Sfârșitul anului fiscal 2026/27
+DESCRIPTION:Ziua în care se închide anul fiscal. Adună documentele pen
+ tru declarația următoare.\n\nhttps://adridari1987-spec.github.io/servic
+ iicontabilitateanglia/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Sfârșitul anului fiscal 2026/27
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:20270507-termene-fiscale.ics@serviciicontabilitateanglia
+DTSTAMP:20260925T090000Z
+DTSTART;VALUE=DATE:20270507
+DTEND;VALUE=DATE:20270508
+SUMMARY:Raportare trimestrială MTD
+DESCRIPTION:Pentru perioada 6 ianuarie – 5 aprilie 2027.\n\nhttps://adr
+ idari1987-spec.github.io/serviciicontabilitateanglia/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Raportare trimestrială MTD
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:20270731-termene-fiscale.ics@serviciicontabilitateanglia
+DTSTAMP:20260925T090000Z
+DTSTART;VALUE=DATE:20270731
+DTEND;VALUE=DATE:20270801
+SUMMARY:A doua plată în avans pentru 2026/27
+DESCRIPTION:A doua plată în avans (payment on account)\, dacă HMRC ți
+ -a cerut plăți în avans.\n\nhttps://adridari1987-spec.github.io/servic
+ iicontabilitateanglia/
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:A doua plată în avans pentru 2026/27
+TRIGGER:-P7D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

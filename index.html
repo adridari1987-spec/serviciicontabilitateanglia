@@ -7,6 +7,20 @@
   <meta name="description" content="Contabilitate în Marea Britanie pentru români: Self Assessment, CIS, firme Ltd, VAT, Making Tax Digital și investigații HMRC. Totul explicat în limba română.">
   <link rel="alternate" hreflang="ro" href="index.html">
   <link rel="alternate" hreflang="en" href="en.html">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#0f4c81">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Servicii De Contabilitate Anglia">
+  <meta property="og:locale" content="ro_RO">
+  <meta property="og:title" content="Servicii De Contabilitate Anglia">
+  <meta property="og:description" content="Contabilitate în Marea Britanie pentru români: Self Assessment, CIS, firme Ltd, VAT, Making Tax Digital și investigații HMRC. Totul explicat în limba română.">
+  <meta property="og:url" content="https://adridari1987-spec.github.io/serviciicontabilitateanglia/">
+  <meta property="og:image" content="https://adridari1987-spec.github.io/serviciicontabilitateanglia/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -24,10 +38,10 @@
       <div class="header__right">
         <nav class="nav">
           <a href="#servicii">Servicii</a>
-          <a href="#calculator-cis">Calculator CIS</a>
+          <a href="#calculator-cis">Calculatoare</a>
           <a href="#preturi">Prețuri</a>
-          <a href="#despre">Despre noi</a>
-          <a href="#intrebari">Întrebări</a>
+          <a href="#termene">Termene</a>
+          <a href="#ghiduri">Ghiduri</a>
           <a href="#contact" class="btn btn--small">Cere ofertă</a>
         </nav>
         <div class="lang" aria-label="Limba site-ului">
@@ -185,6 +199,64 @@
       </div>
     </section>
 
+    <!-- ========== CALCULATOR SELF-EMPLOYED SAU LTD ========== -->
+    <section class="section" id="calculator-ltd">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow">Calculator gratuit</p>
+          <h2>Self-employed sau firmă Ltd: ce te avantajează?</h2>
+          <p>Introdu profitul estimat pe un an și compară cât îți rămâne în mână în fiecare variantă (anul fiscal 2025/26).</p>
+        </div>
+
+        <div class="calc calc--ltd" id="ltd-calc">
+          <form class="calc__form" autocomplete="off" novalidate>
+            <label>Profit anual estimat
+              <span class="money"><span>£</span><input type="number" name="profit" min="0" step="any" inputmode="decimal" placeholder="ex. 50000"></span>
+              <small>Veniturile minus cheltuielile, înainte de impozite și de salariul tău.</small>
+            </label>
+            <p class="calc__hint-dark" data-ltd-show="gol">Completează profitul ca să vezi comparația.</p>
+          </form>
+
+          <div class="compare" aria-live="polite">
+            <article class="compare__card" data-varianta="se">
+              <h3>Self-employed</h3>
+              <p class="compare__label">Îți rămân în mână</p>
+              <p class="compare__amount" data-ltd-out="seNet">£0</p>
+              <dl class="compare__rows">
+                <div><dt>Impozit pe venit</dt><dd data-ltd-out="seImpozit">£0</dd></div>
+                <div><dt>Class 4 NI</dt><dd data-ltd-out="seNi">£0</dd></div>
+                <div><dt>Total taxe</dt><dd data-ltd-out="seTaxe">£0</dd></div>
+              </dl>
+            </article>
+            <article class="compare__card" data-varianta="ltd">
+              <h3>Firmă Ltd</h3>
+              <p class="compare__label">Îți rămân în mână</p>
+              <p class="compare__amount" data-ltd-out="ltdNet">£0</p>
+              <dl class="compare__rows">
+                <div><dt>Salariu director</dt><dd data-ltd-out="ltdSalariu">£0</dd></div>
+                <div><dt>Dividende</dt><dd data-ltd-out="ltdDividende">£0</dd></div>
+                <div><dt>Corporation Tax</dt><dd data-ltd-out="ltdCt">£0</dd></div>
+                <div><dt>NI angajator</dt><dd data-ltd-out="ltdNiAngajator">£0</dd></div>
+                <div><dt>Impozit personal</dt><dd data-ltd-out="ltdImpozitDiv">£0</dd></div>
+                <div><dt>Total taxe</dt><dd data-ltd-out="ltdTaxe">£0</dd></div>
+              </dl>
+            </article>
+          </div>
+        </div>
+
+        <div class="verdict" data-ltd-show="rezultat" hidden>
+          <p class="verdict__text">
+            <span data-ltd-show="ltd" hidden>Cu o firmă Ltd îți rămân cu aproximativ <strong data-ltd-out="diferenta">£0</strong> mai mult pe an.</span>
+            <span data-ltd-show="se" hidden>Ca self-employed îți rămân cu aproximativ <strong data-ltd-out="diferenta">£0</strong> mai mult pe an.</span>
+          </p>
+          <a href="#contact" class="btn ltd__cta">Discută cu noi varianta potrivită</a>
+        </div>
+        <p class="ltd__tip">O firmă Ltd poate ieși mai avantajoasă dacă lași o parte din profit în firmă, dacă plătești contribuții la pensie prin firmă sau dacă împarți acțiunile cu soțul sau soția. Îți facem calculul complet la consultația gratuită.</p>
+
+        <p class="calc__note-dark">Este doar o estimare, nu consultanță fiscală. Pentru Ltd presupunem un salariu de director de £12.570 (sau mai mic, dacă profitul nu permite) și restul profitului scos ca dividende. Nu sunt incluse costurile de administrare a firmei (la noi, de la £100/lună), contribuțiile la pensie, Employment Allowance, alte venituri sau rezidența în Scoția. Ratele sunt cele pentru 2025/26, pentru Anglia, Țara Galilor și Irlanda de Nord.</p>
+      </div>
+    </section>
+
     <!-- ========== PREȚURI ========== -->
     <section class="section section--alt" id="preturi">
       <div class="container">
@@ -268,8 +340,148 @@
       </div>
     </section>
 
+    <!-- ========== TERMENE FISCALE ========== -->
+    <section class="section section--alt" id="termene">
+      <div class="container container--narrow">
+        <div class="section__head">
+          <p class="eyebrow">Termene fiscale</p>
+          <h2>Nu mai rata niciun termen HMRC</h2>
+          <p>Termenele importante pentru self-employed, CIS și Making Tax Digital. Adaugă-le în calendarul tău ca să primești memento.</p>
+        </div>
+
+        <p class="termene__next" data-termen-urmator hidden>Următorul termen: <strong data-termen-titlu></strong>, <span data-termen-zile></span></p>
+
+        <ol class="termene" data-calendar-label="+ Google Calendar" data-azi="astăzi" data-maine="mâine" data-zile="în {n} zile">
+          <li data-date="2026-10-05">
+            <time datetime="2026-10-05">5 oct. 2026</time>
+            <div><h3>Înregistrare pentru Self Assessment</h3><p>Dacă ai început să lucrezi pe cont propriu (inclusiv pe CIS) în anul fiscal 2025/26, trebuie să te înregistrezi la HMRC până la această dată.</p></div>
+          </li>
+          <li data-date="2026-10-31">
+            <time datetime="2026-10-31">31 oct. 2026</time>
+            <div><h3>Declarația pe hârtie 2025/26</h3><p>Ultima zi pentru declarația Self Assessment depusă pe hârtie. Online ai timp până la 31 ianuarie.</p></div>
+          </li>
+          <li data-date="2026-11-07">
+            <time datetime="2026-11-07">7 nov. 2026</time>
+            <div><h3>Raportare trimestrială MTD</h3><p>Pentru perioada 6 iulie – 5 octombrie 2026, dacă ești inclus în Making Tax Digital (venituri de peste £50.000).</p></div>
+          </li>
+          <li data-date="2026-12-30">
+            <time datetime="2026-12-30">30 dec. 2026</time>
+            <div><h3>Plata prin codul fiscal PAYE</h3><p>Dacă ai și salariu și datorezi sub £3.000, depune declarația online până azi ca suma să fie colectată prin salariu.</p></div>
+          </li>
+          <li data-date="2027-01-31">
+            <time datetime="2027-01-31">31 ian. 2027</time>
+            <div><h3>Declarația online Self Assessment 2025/26 și plata impozitului</h3><p>Termenul final pentru declarația online și pentru plata impozitului, plus prima plată în avans (payment on account) pentru 2026/27. Întârzierea aduce o amendă de £100.</p></div>
+          </li>
+          <li data-date="2027-02-07">
+            <time datetime="2027-02-07">7 feb. 2027</time>
+            <div><h3>Raportare trimestrială MTD</h3><p>Pentru perioada 6 octombrie 2026 – 5 ianuarie 2027.</p></div>
+          </li>
+          <li data-date="2027-04-05">
+            <time datetime="2027-04-05">5 apr. 2027</time>
+            <div><h3>Sfârșitul anului fiscal 2026/27</h3><p>Ziua în care se închide anul fiscal. Adună documentele pentru declarația următoare.</p></div>
+          </li>
+          <li data-date="2027-05-07">
+            <time datetime="2027-05-07">7 mai 2027</time>
+            <div><h3>Raportare trimestrială MTD</h3><p>Pentru perioada 6 ianuarie – 5 aprilie 2027.</p></div>
+          </li>
+          <li data-date="2027-07-31">
+            <time datetime="2027-07-31">31 iul. 2027</time>
+            <div><h3>A doua plată în avans pentru 2026/27</h3><p>A doua plată în avans (payment on account), dacă HMRC ți-a cerut plăți în avans.</p></div>
+          </li>
+        </ol>
+
+        <div class="termene__actions">
+          <a href="termene-fiscale.ics" class="btn" download>Adaugă toate în calendar</a>
+        </div>
+        <p class="note">În fiecare lună, pe 19, contractorii CIS depun declarația lunară CIS. Termenele pentru VAT, Corporation Tax și bilanțul unei firme Ltd depind de anul financiar al firmei. Le calculăm noi pentru fiecare client.</p>
+      </div>
+    </section>
+
+    <!-- ========== DOCUMENTE NECESARE ========== -->
+    <section class="section" id="documente">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow">Pregătește-te</p>
+          <h2>Ce documente ne trimiți</h2>
+          <p>Lista documentelor de care avem nevoie, în funcție de situația ta. O poți printa sau salva ca PDF.</p>
+        </div>
+        <div class="grid grid--3 docs">
+          <article class="card">
+            <h3>CIS și self-employed</h3>
+            <ul class="docs__list">
+              <li>Numărul UTR și numărul de asigurare națională (NI)</li>
+              <li>Toate CIS statements lunare din anul fiscal</li>
+              <li>Extrasele de cont pentru tot anul</li>
+              <li>Facturi și bonuri pentru unelte, echipament și haine de protecție</li>
+              <li>Evidența milelor (data, destinația, numărul de mile)</li>
+              <li>Facturile de telefon și internet</li>
+              <li>Alte venituri: P60 sau P45 de la angajator, chirii</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Firmă Ltd</h3>
+            <ul class="docs__list">
+              <li>Extrasele de cont ale firmei, lunar</li>
+              <li>Facturile emise către clienți</li>
+              <li>Facturi și bonuri pentru cheltuieli</li>
+              <li>Contracte de leasing sau de împrumut</li>
+              <li>Salariile plătite, dacă nu ne ocupăm noi de ele</li>
+              <li>Codul de autentificare Companies House</li>
+              <li>Numărul UTR al firmei și numărul de VAT, dacă ai</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Firmă nouă (înființare)</h3>
+            <ul class="docs__list">
+              <li>Numele dorit pentru firmă, plus 1–2 variante</li>
+              <li>Adresa înregistrată a firmei (registered office)</li>
+              <li>Pentru fiecare director: nume, data nașterii, naționalitate, adresă</li>
+              <li>Numărul de asigurare națională (NI) al fiecărui director</li>
+              <li>Act de identitate valabil, pentru verificarea identității cerută de Companies House</li>
+              <li>Activitatea firmei (ce servicii oferi)</li>
+              <li>Acționarii și numărul de acțiuni</li>
+            </ul>
+          </article>
+        </div>
+        <div class="termene__actions">
+          <button type="button" class="btn btn--ghost" data-print-docs>Printează sau salvează PDF</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== GHIDURI ========== -->
+    <section class="section section--alt" id="ghiduri">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow">Ghiduri gratuite</p>
+          <h2>Taxele din Anglia, explicate pe înțeles</h2>
+          <p>Răspunsuri clare la întrebările pe care ni le pun cel mai des românii din Marea Britanie.</p>
+        </div>
+        <div class="grid grid--3">
+          <a class="card card--link" href="ghid-utr.html">
+            <div class="card__icon">🪪</div>
+            <h3>Cum obții numărul UTR</h3>
+            <p>Pașii pentru înregistrarea ca self-employed la HMRC, ce îți trebuie și până când.</p>
+            <span class="card__link">Citește ghidul →</span>
+          </a>
+          <a class="card card--link" href="ghid-cheltuieli-cis.html">
+            <div class="card__icon">🧰</div>
+            <h3>Ce cheltuieli poți deduce pe CIS</h3>
+            <p>Unelte, mile, haine de protecție și altele: ce scade din impozit și ce nu.</p>
+            <span class="card__link">Citește ghidul →</span>
+          </a>
+          <a class="card card--link" href="ghid-scrisoare-hmrc.html">
+            <div class="card__icon">✉️</div>
+            <h3>Ai primit o scrisoare de la HMRC?</h3>
+            <p>Cum verifici dacă e reală, ce înseamnă și ce trebuie să faci.</p>
+            <span class="card__link">Citește ghidul →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- ========== DESPRE NOI ========== -->
-    <section class="section section--alt" id="despre">
+    <section class="section" id="despre">
       <div class="container about">
         <div>
           <p class="eyebrow">Despre noi</p>
@@ -287,7 +499,7 @@
     </section>
 
     <!-- ========== ÎNTREBĂRI FRECVENTE ========== -->
-    <section class="section" id="intrebari">
+    <section class="section section--alt" id="intrebari">
       <div class="container container--narrow">
         <div class="section__head">
           <p class="eyebrow">Întrebări frecvente</p>
@@ -384,9 +596,14 @@
   <footer class="footer">
     <div class="container footer__inner">
       <p><strong>Servicii De Contabilitate Anglia</strong> · London, Marea Britanie</p>
-      <p>© <span id="an"></span> Toate drepturile rezervate.</p>
+      <p><a href="index.html#ghiduri">Ghiduri</a> · <a href="confidentialitate.html">Politica de confidențialitate</a> · © <span id="an"></span> Toate drepturile rezervate.</p>
     </div>
   </footer>
+
+  <a class="wa-float" href="https://wa.me/447344883686?text=Bun%C4%83%20ziua%21%20A%C8%99%20dori%20informa%C8%9Bii%20despre%20serviciile%20de%20contabilitate." target="_blank" rel="noopener" aria-label="Scrie-ne pe WhatsApp">
+    <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path fill="currentColor" d="M12 2C6.5 2 2 6 2 11c0 2.4 1 4.6 2.8 6.2L4 22l4.9-2.3c1 .3 2 .4 3.1.4 5.5 0 10-4 10-9S17.5 2 12 2zm-3.5 10.2a1.3 1.3 0 1 1 0-2.6 1.3 1.3 0 0 1 0 2.6zm3.5 0a1.3 1.3 0 1 1 0-2.6 1.3 1.3 0 0 1 0 2.6zm3.5 0a1.3 1.3 0 1 1 0-2.6 1.3 1.3 0 0 1 0 2.6z"/></svg>
+    <span>WhatsApp</span>
+  </a>
 
   <script src="script.js"></script>
 </body>
