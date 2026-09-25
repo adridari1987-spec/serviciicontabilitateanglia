@@ -97,7 +97,9 @@ if (WEB3FORMS_KEY && hint?.dataset.hintDirect) hint.textContent = hint.dataset.h
 
 const campAngajati = formular?.querySelector(".form__angajati");
 const actualizeazaAngajati = () => {
-  if (campAngajati) campAngajati.hidden = !/Ltd|Limited/.test(formular.elements.tip.value);
+  if (!campAngajati) return;
+  campAngajati.hidden = !/Ltd|Limited/.test(formular.elements.tip.value);
+  campAngajati.parentElement.classList.toggle("form__row--singur", campAngajati.hidden);
 };
 formular?.elements.tip.addEventListener("change", actualizeazaAngajati);
 actualizeazaAngajati();

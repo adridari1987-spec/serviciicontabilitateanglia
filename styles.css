@@ -662,3 +662,18 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
 .card__link, .banner__link { padding: 11px 0; }
 @media (max-width: 760px) { .mobile-bar a { font-size: 0.875rem; } }
 @media (max-width: 600px) { .banner__price span, .tag { font-size: 0.875rem; } }
+
+/* ========== Compatibilitate telefoane ========== */
+/* iPhone (Safari) mărește pagina când atingi un câmp cu text sub 16px */
+.form input, .form select, .form textarea, .money input { font-size: 1rem; }
+/* Efectul de sticlă al antetului pe Safari mai vechi (iOS 17 și înainte) */
+.header { -webkit-backdrop-filter: blur(8px); }
+/* Pentru browserele fără :has() (iOS mai vechi de 15.4): clasa e pusă din script.js */
+.form__row--singur { grid-template-columns: 1fr; }
+/* Telefoane foarte înguste (de exemplu Galaxy Z Fold închis, 280px) */
+@media (max-width: 300px) {
+  .logo { gap: 7px; }
+  .logo__mark { width: 30px; height: 30px; }
+  .logo__text { font-size: 0.8rem; }
+  .header__right { gap: 6px; }
+}
