@@ -24,6 +24,7 @@
       <div class="header__right">
         <nav class="nav">
           <a href="#servicii">Servicii</a>
+          <a href="#calculator-cis">Calculator CIS</a>
           <a href="#preturi">Prețuri</a>
           <a href="#despre">Despre noi</a>
           <a href="#intrebari">Întrebări</a>
@@ -85,6 +86,7 @@
             <div class="card__icon">🏗️</div>
             <h3>CIS și recuperare taxe</h3>
             <p>Lucrezi în construcții pe CIS? Calculăm cât ți s-a reținut în plus și cerem banii înapoi de la HMRC.</p>
+            <a href="#calculator-cis" class="card__link">Calculează cât primești înapoi →</a>
           </article>
           <article class="card">
             <div class="card__icon">🏢</div>
@@ -106,6 +108,79 @@
             <h3>Reprezentare în investigații HMRC</h3>
             <p>Ai primit o verificare sau o investigație de la HMRC? Pregătim documentele și comunicăm noi cu HMRC în numele tău.</p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CALCULATOR CIS ========== -->
+    <section class="section section--calc" id="calculator-cis">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow">Calculator gratuit</p>
+          <h2>Cât poți primi înapoi din CIS?</h2>
+          <p>Introdu sumele din anul fiscal 2025/26 (6 aprilie 2025 – 5 aprilie 2026) și vezi pe loc o estimare a rambursării.</p>
+        </div>
+
+        <div class="calc" id="cis-calc">
+          <form class="calc__form" autocomplete="off" novalidate>
+            <fieldset>
+              <legend>1. Venitul tău pe CIS</legend>
+              <label>Total brut încasat (înainte de reținere)
+                <span class="money"><span>£</span><input type="number" name="brut" min="0" step="any" inputmode="decimal" placeholder="ex. 30000"></span>
+                <small>Suma „Gross amount paid” de pe toate CIS statements din anul fiscal.</small>
+              </label>
+              <label>Total CIS reținut
+                <span class="money"><span>£</span><input type="number" name="retinut" min="0" step="any" inputmode="decimal" placeholder="ex. 6000"></span>
+                <small>Suma „CIS deducted” de pe statements. Dacă n-o știi, o calculăm automat ca 20% din venitul brut.</small>
+              </label>
+            </fieldset>
+
+            <fieldset>
+              <legend>2. Cheltuielile tale pentru muncă</legend>
+              <div class="calc__grid">
+                <label>Unelte și echipament
+                  <span class="money"><span>£</span><input type="number" name="unelte" min="0" step="any" inputmode="decimal" placeholder="0"></span>
+                </label>
+                <label>Haine de lucru și echipament de protecție
+                  <span class="money"><span>£</span><input type="number" name="protectie" min="0" step="any" inputmode="decimal" placeholder="0"></span>
+                </label>
+                <label>Mile parcurse cu mașina proprie în interes de muncă
+                  <span class="money"><span>mi</span><input type="number" name="mile" min="0" step="any" inputmode="decimal" placeholder="0"></span>
+                  <small>Calculăm 45p/milă pentru primele 10.000 de mile și 25p după aceea.</small>
+                </label>
+                <label>Alte costuri de transport (tren, parcare, taxe de drum)
+                  <span class="money"><span>£</span><input type="number" name="transport" min="0" step="any" inputmode="decimal" placeholder="0"></span>
+                </label>
+                <label>Telefon și internet (partea folosită pentru muncă)
+                  <span class="money"><span>£</span><input type="number" name="telefon" min="0" step="any" inputmode="decimal" placeholder="0"></span>
+                </label>
+                <label>Alte cheltuieli (cursuri, card CSCS, asigurare, contabil)
+                  <span class="money"><span>£</span><input type="number" name="altele" min="0" step="any" inputmode="decimal" placeholder="0"></span>
+                </label>
+              </div>
+            </fieldset>
+          </form>
+
+          <aside class="calc__result" aria-live="polite">
+            <p class="calc__label" data-show="gol">Estimarea ta</p>
+            <p class="calc__label" data-show="rambursare" hidden>Rambursare estimată</p>
+            <p class="calc__label" data-show="plata" hidden>De plătit estimat</p>
+            <p class="calc__amount" data-out="rezultat">£0</p>
+            <p class="calc__hint" data-show="gol">Completează venitul brut ca să vezi rezultatul.</p>
+
+            <dl class="calc__rows">
+              <div><dt>Venit brut</dt><dd data-out="brut">£0</dd></div>
+              <div><dt>Cheltuieli deductibile</dt><dd data-out="cheltuieli">£0</dd></div>
+              <div><dt>Profit impozabil</dt><dd data-out="profit">£0</dd></div>
+              <div><dt>Impozit pe venit</dt><dd data-out="impozit">£0</dd></div>
+              <div><dt>Contribuții Class 4 NI</dt><dd data-out="ni">£0</dd></div>
+              <div><dt>Total datorat</dt><dd data-out="datorat">£0</dd></div>
+              <div><dt>CIS deja reținut</dt><dd data-out="retinut">£0</dd></div>
+            </dl>
+
+            <a href="#contact" class="btn btn--block calc__cta">Vreau să recuperez banii</a>
+            <p class="calc__note">Este doar o estimare, nu consultanță fiscală. Calculul folosește ratele pentru Anglia, Țara Galilor și Irlanda de Nord în 2025/26 și presupune că CIS a fost singurul tău venit. Salariile, chiriile, împrumuturile de student sau rezidența în Scoția schimbă rezultatul. Suma exactă o afli la consultația gratuită.</p>
+          </aside>
         </div>
       </div>
     </section>
