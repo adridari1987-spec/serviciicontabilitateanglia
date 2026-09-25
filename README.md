@@ -4,7 +4,7 @@ Site de prezentare pentru o firmă de contabilitate din Marea Britanie, pentru c
 
 ## Ce conține
 
-- **Prezentare**: mesaj principal, butoane „Cere ofertă” și WhatsApp
+- **Prezentare**: mesaj principal, butoane „Cere o ofertă gratuită” și „Programează consultația gratuită” (Calendly); buton WhatsApp plutitor pe toate paginile
 - **Servicii**: Self Assessment, CIS și recuperare taxe, administrare firme Ltd, raportare VAT, raportare Making Tax Digital, reprezentare în investigații HMRC
 - **Documente pentru ipotecă și refinanțare** (de la £200): banner sub servicii, cu nota că nu oferim consultanță de credit (activitate reglementată FCA)
 - **Calculator CIS**: estimează pe loc rambursarea CIS din venitul brut, suma reținută și cheltuieli (unelte, echipament de protecție, mile, transport, telefon, altele). Butonul de sub rezultat completează formularul de contact cu estimarea.
@@ -73,13 +73,10 @@ Poți edita fișierele direct pe GitHub: deschizi fișierul, apeși pe creionul 
 
 ## Cum vezi site-ul
 
+**Site-ul este live:** https://adridari1987-spec.github.io/serviciicontabilitateanglia/
+
+Se publică automat cu GitHub Pages din ramura `main` (Settings → Pages). Orice modificare aplicată în `main` apare pe site în 1–2 minute. Dacă nu vezi schimbarea, apasă **Ctrl + F5**. Depozitul trebuie să rămână **public**, pentru că GitHub Pages gratuit funcționează doar pentru depozite publice.
+
 **Pe calculatorul tău:** descarcă proiectul (butonul verde **Code**, apoi **Download ZIP**), dezarhivează-l și deschide `index.html` în browser.
 
-**Online, gratuit, cu GitHub Pages:**
-1. Pe GitHub, mergi la **Settings**, apoi **Pages**.
-2. La „Branch” alege `main` și folderul `/ (root)`, apoi apasă **Save**.
-3. După 1–2 minute site-ul apare la `https://adridari1987-spec.github.io/serviciicontabilitateanglia/`.
-
-> Notă: pe contul GitHub gratuit, GitHub Pages funcționează doar pentru depozite **publice**. Depozitul acesta este privat, așa că trebuie fie să-l faci public (Settings, apoi Danger Zone, apoi Change visibility), fie să ai un plan GitHub Pro.
-
-Poți folosi și un domeniu propriu (de exemplu `serviciicontabilitateanglia.co.uk`), din aceeași pagină **Settings → Pages → Custom domain**.
+**Domeniu propriu** (de exemplu `serviciicontabilitateanglia.co.uk`): după ce îl cumperi, se leagă din **Settings → Pages → Custom domain**.
