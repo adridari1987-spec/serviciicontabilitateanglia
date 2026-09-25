@@ -43,7 +43,7 @@ Poți edita fișierele direct pe GitHub: deschizi fișierul, apeși pe creionul 
 **Online, gratuit, cu GitHub Pages:**
 1. Pe GitHub, mergi la **Settings**, apoi **Pages**.
 2. La „Branch” alege `main` și folderul `/ (root)`, apoi apasă **Save**.
-3. După 1–2 minute site-ul apare la `https://adridari1987-spec.github.io/test/`.
+3. După 1–2 minute site-ul apare la `https://adridari1987-spec.github.io/serviciicontabilitateanglia/`.
 
 > Notă: pe contul GitHub gratuit, GitHub Pages funcționează doar pentru depozite **publice**. Depozitul acesta este privat, așa că trebuie fie să-l faci public (Settings, apoi Danger Zone, apoi Change visibility), fie să ai un plan GitHub Pro.
 
