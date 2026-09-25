@@ -6,13 +6,14 @@ Site de prezentare pentru o firmă de contabilitate din Marea Britanie, pentru c
 
 - **Prezentare**: mesaj principal, butoane „Cere ofertă” și WhatsApp
 - **Servicii**: Self Assessment, CIS și recuperare taxe, administrare firme Ltd, raportare VAT, raportare Making Tax Digital, reprezentare în investigații HMRC
+- **Documente pentru ipotecă și refinanțare** (de la £200): banner sub servicii, cu nota că nu oferim consultanță de credit (activitate reglementată FCA)
 - **Calculator CIS**: estimează pe loc rambursarea CIS din venitul brut, suma reținută și cheltuieli (unelte, echipament de protecție, mile, transport, telefon, altele). Butonul de sub rezultat completează formularul de contact cu estimarea.
 - **Calculator Self-employed sau Ltd**: compară cât îți rămâne în mână ca self-employed și cu o firmă Ltd (salariu de £12.570 + dividende)
 - **Prețuri**: raportare MTD £75, raportare VAT £75, administrare Ltd de la £100/lună, investigații HMRC de la £250, prima consultație gratuită
 - **Cum lucrăm**: 3 pași
 - **Termene fiscale**: următorul termen evidențiat, link „+ Google Calendar” la fiecare termen și fișier de calendar cu toate termenele
 - **Documente necesare**: liste pentru CIS/self-employed, Ltd și firmă nouă, cu buton de printare sau salvare PDF
-- **Ghiduri** (în română): numărul UTR, cheltuieli deductibile pe CIS, scrisori de la HMRC
+- **Ghiduri** (în română): numărul UTR, cheltuieli deductibile pe CIS, scrisori de la HMRC, ipotecă și refinanțare ca self-employed
 - **Despre noi**
 - **Întrebări frecvente**: UTR, termenul Self Assessment, CIS, Making Tax Digital, self-employed sau Ltd, scrisori HMRC
 - **Contact**: formular de ofertă, telefon, WhatsApp, e-mail, oraș, program
@@ -25,13 +26,23 @@ Site de prezentare pentru o firmă de contabilitate din Marea Britanie, pentru c
 | `en.html` | Pagina în **engleză** |
 | `styles.css` | Culorile și aspectul (comun pentru ambele limbi) |
 | `script.js` | Meniul pe telefon, formularul de contact, calculatoarele, termenele și printarea |
-| `ghid-*.html` | Cele 3 ghiduri în română |
+| `ghid-*.html` | Cele 4 ghiduri în română |
+| `404.html` | Pagina afișată când o adresă nu există |
 | `confidentialitate.html`, `privacy.html` | Politica de confidențialitate (RO / EN) |
 | `termene-fiscale.ics`, `tax-deadlines.ics` | Termenele fiscale ca fișiere de calendar (RO / EN) |
 | `favicon.svg`, `favicon-32.png`, `apple-touch-icon.png` | Iconița site-ului |
 | `og-image.png`, `og-image-en.png` | Imaginea care apare când trimiți linkul pe WhatsApp sau Facebook |
 | `sitemap.xml` | Lista paginilor, pentru Google Search Console |
 | `google0ebb1c82567fd536.html` | Verificarea Google Search Console. **Nu-l șterge**, altfel se pierde verificarea. |
+
+Date structurate pentru Google (JSON-LD): firma (AccountingService) și întrebările frecvente pe paginile principale, iar fiecare ghid are datele de articol (Article). Dacă schimbi telefonul, programul sau adresa, schimbă-le și în blocul `application/ld+json` din `index.html` și `en.html`.
+
+## Formularul de contact (Web3Forms)
+
+Cu cheia Web3Forms, formularul trimite mesajul direct pe e-mail. Fără cheie, deschide aplicația de e-mail a vizitatorului.
+1. Intră pe https://web3forms.com, scrie adresa **serviciidecontabilitateanglia@gmail.com** și apasă **Create Access Key**.
+2. Cheia vine pe e-mail. Pune-o în `script.js`, la `const WEB3FORMS_KEY = "";`, între ghilimele.
+3. Dacă serverul Web3Forms nu răspunde, formularul deschide automat aplicația de e-mail, deci nu se pierde niciun mesaj.
 
 Statistici de vizitare: https://contabilitateanglia.goatcounter.com (fără cookie-uri; codul e la sfârșitul fiecărei pagini HTML).
 

@@ -1,17 +1,27 @@
 // Adresa de e-mail la care ajung cererile de ofertă. SCHIMB-O cu adresa ta.
 const EMAIL_FIRMA = "serviciidecontabilitateanglia@gmail.com";
 
+// Cheia Web3Forms (https://web3forms.com): cu ea, formularul trimite mesajul direct pe e-mail.
+// Cât timp e goală, formularul deschide aplicația de e-mail a vizitatorului.
+const WEB3FORMS_KEY = "";
+
 // Textele e-mailului, în limba paginii (index.html = română, en.html = engleză)
 const TEXTE = {
   ro: {
     subiect: "Cerere ofertă contabilitate",
     nume: "Nume", telefon: "Telefon", email: "E-mail",
     tip: "Situația", angajati: "Număr de angajați", mesaj: "Mesaj",
+    seTrimite: "Se trimite…",
+    trimis: "Mulțumim! Am primit mesajul și îți răspundem în cel mult 24 de ore.",
+    eroare: "Mesajul nu a putut fi trimis. Se deschide aplicația de e-mail ca să-l trimiți de acolo.",
   },
   en: {
     subiect: "Accounting quote request",
     nume: "Name", telefon: "Phone", email: "E-mail",
     tip: "Situation", angajati: "Number of employees", mesaj: "Message",
+    seTrimite: "Sending…",
+    trimis: "Thank you! We've received your message and will reply within 24 hours.",
+    eroare: "Your message couldn't be sent. Your e-mail app will open so you can send it from there.",
   },
 };
 const t = TEXTE[document.documentElement.lang] || TEXTE.ro;
@@ -32,11 +42,16 @@ nav.querySelectorAll("a").forEach((link) =>
   })
 );
 
-// Formularul de contact: deschide aplicația de e-mail cu mesajul completat
-// (există doar pe paginile principale, nu și pe ghiduri)
-document.getElementById("contact-form")?.addEventListener("submit", (e) => {
+// Formularul de contact (există doar pe paginile principale, nu și pe ghiduri).
+// Cu cheie Web3Forms trimite mesajul direct; altfel deschide aplicația de e-mail.
+const formular = document.getElementById("contact-form");
+const hint = formular?.querySelector(".form__hint");
+if (WEB3FORMS_KEY && hint?.dataset.hintDirect) hint.textContent = hint.dataset.hintDirect;
+
+formular?.addEventListener("submit", async (e) => {
   e.preventDefault();
   const date = new FormData(e.target);
+  if (date.get("botcheck")) return; // câmp ascuns: doar roboții îl bifează
 
   const subiect = `${t.subiect} - ${date.get("nume")}`;
   const corp = [
@@ -49,9 +64,50 @@ document.getElementById("contact-form")?.addEventListener("submit", (e) => {
     `${t.mesaj}: ${date.get("mesaj")}`,
   ].join("\n");
 
-  window.location.href =
-    `mailto:${EMAIL_FIRMA}?subject=${encodeURIComponent(subiect)}&body=${encodeURIComponent(corp)}`;
+  const deschideEmail = () => {
+    window.location.href =
+      `mailto:${EMAIL_FIRMA}?subject=${encodeURIComponent(subiect)}&body=${encodeURIComponent(corp)}`;
+  };
+  if (!WEB3FORMS_KEY) return deschideEmail();
+
+  const status = formular.querySelector(".form__status");
+  const buton = formular.querySelector("[type=submit]");
+  const arata = (text, tip) => { status.textContent = text; status.dataset.tip = tip; status.hidden = false; };
+  buton.disabled = true;
+  arata(t.seTrimite, "info");
+  try {
+    const raspuns = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({
+        access_key: WEB3FORMS_KEY,
+        subject: subiect,
+        from_name: "Site Servicii De Contabilitate Anglia",
+        email: date.get("email"),
+        message: corp,
+        botcheck: false,
+      }),
+    });
+    const rezultat = await raspuns.json();
+    if (!rezultat.success) throw new Error(rezultat.message);
+    arata(t.trimis, "ok");
+    formular.reset();
+  } catch {
+    arata(t.eroare, "eroare");
+    deschideEmail();
+  } finally {
+    buton.disabled = false;
+  }
 });
+
+// Butoanele cu data-tip (de exemplu „Cere ofertă” la ipotecă) aleg situația în formular
+document.querySelectorAll("[data-tip]").forEach((btn) =>
+  btn.addEventListener("click", () => {
+    const tip = formular?.elements.tip;
+    const optiune = tip && [...tip.options].find((o) => o.text === btn.dataset.tip);
+    if (optiune) tip.value = optiune.value;
+  })
+);
 
 // Anul curent în subsol
 const an = document.getElementById("an");
