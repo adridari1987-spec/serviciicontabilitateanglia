@@ -24,6 +24,7 @@
       <div class="header__right">
         <nav class="nav">
           <a href="#services">Services</a>
+          <a href="#cis-calculator">CIS calculator</a>
           <a href="#pricing">Pricing</a>
           <a href="#about">About us</a>
           <a href="#faq">FAQ</a>
@@ -85,6 +86,7 @@
             <div class="card__icon">🏗️</div>
             <h3>CIS and tax refunds</h3>
             <p>Working in construction under CIS? We work out how much was overpaid and claim it back from HMRC.</p>
+            <a href="#cis-calculator" class="card__link">Work out your refund →</a>
           </article>
           <article class="card">
             <div class="card__icon">🏢</div>
@@ -106,6 +108,79 @@
             <h3>HMRC investigation representation</h3>
             <p>Facing an HMRC compliance check or investigation? We prepare the documents and deal with HMRC on your behalf.</p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CIS CALCULATOR ========== -->
+    <section class="section section--calc" id="cis-calculator">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow">Free calculator</p>
+          <h2>How much CIS tax could you get back?</h2>
+          <p>Enter your figures for the 2025/26 tax year (6 April 2025 – 5 April 2026) and see an instant refund estimate.</p>
+        </div>
+
+        <div class="calc" id="cis-calc">
+          <form class="calc__form" autocomplete="off" novalidate>
+            <fieldset>
+              <legend>1. Your CIS income</legend>
+              <label>Total gross pay (before deductions)
+                <span class="money"><span>£</span><input type="number" name="brut" min="0" step="any" inputmode="decimal" placeholder="e.g. 30000"></span>
+                <small>The “Gross amount paid” from all your CIS statements for the tax year.</small>
+              </label>
+              <label>Total CIS deducted
+                <span class="money"><span>£</span><input type="number" name="retinut" min="0" step="any" inputmode="decimal" placeholder="e.g. 6000"></span>
+                <small>The “CIS deducted” figure on your statements. If you don't know it, we use 20% of your gross pay.</small>
+              </label>
+            </fieldset>
+
+            <fieldset>
+              <legend>2. Your work expenses</legend>
+              <div class="calc__grid">
+                <label>Tools and equipment
+                  <span class="money"><span>£</span><input type="number" name="unelte" min="0" step="any" inputmode="decimal" placeholder="0"></span>
+                </label>
+                <label>Workwear and protective equipment
+                  <span class="money"><span>£</span><input type="number" name="protectie" min="0" step="any" inputmode="decimal" placeholder="0"></span>
+                </label>
+                <label>Business miles in your own vehicle
+                  <span class="money"><span>mi</span><input type="number" name="mile" min="0" step="any" inputmode="decimal" placeholder="0"></span>
+                  <small>We use 45p per mile for the first 10,000 miles and 25p after that.</small>
+                </label>
+                <label>Other travel (train, parking, tolls)
+                  <span class="money"><span>£</span><input type="number" name="transport" min="0" step="any" inputmode="decimal" placeholder="0"></span>
+                </label>
+                <label>Phone and internet (work share)
+                  <span class="money"><span>£</span><input type="number" name="telefon" min="0" step="any" inputmode="decimal" placeholder="0"></span>
+                </label>
+                <label>Other costs (training, CSCS card, insurance, accountant)
+                  <span class="money"><span>£</span><input type="number" name="altele" min="0" step="any" inputmode="decimal" placeholder="0"></span>
+                </label>
+              </div>
+            </fieldset>
+          </form>
+
+          <aside class="calc__result" aria-live="polite">
+            <p class="calc__label" data-show="gol">Your estimate</p>
+            <p class="calc__label" data-show="rambursare" hidden>Estimated refund</p>
+            <p class="calc__label" data-show="plata" hidden>Estimated amount to pay</p>
+            <p class="calc__amount" data-out="rezultat">£0</p>
+            <p class="calc__hint" data-show="gol">Enter your gross pay to see the result.</p>
+
+            <dl class="calc__rows">
+              <div><dt>Gross pay</dt><dd data-out="brut">£0</dd></div>
+              <div><dt>Allowable expenses</dt><dd data-out="cheltuieli">£0</dd></div>
+              <div><dt>Taxable profit</dt><dd data-out="profit">£0</dd></div>
+              <div><dt>Income Tax</dt><dd data-out="impozit">£0</dd></div>
+              <div><dt>Class 4 National Insurance</dt><dd data-out="ni">£0</dd></div>
+              <div><dt>Total owed</dt><dd data-out="datorat">£0</dd></div>
+              <div><dt>CIS already deducted</dt><dd data-out="retinut">£0</dd></div>
+            </dl>
+
+            <a href="#contact" class="btn btn--block calc__cta">Claim my refund</a>
+            <p class="calc__note">This is an estimate only, not tax advice. It uses 2025/26 rates for England, Wales and Northern Ireland and assumes CIS was your only income. A salary, rental income, student loan or living in Scotland will change the result. We confirm the exact figure at your free consultation.</p>
+          </aside>
         </div>
       </div>
     </section>
